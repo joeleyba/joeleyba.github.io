@@ -9,5 +9,6 @@
 #                                                   
 
 User-agent: *
+Disallow: /spanish/
 Allow: /
 

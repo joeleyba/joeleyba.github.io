@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¡Palabras Mágicas! | 600 Core Spanish Words</title>
+  <meta name="description" content="Kid-friendly interactive Spanish vocabulary mastery tool for 600 core conversational words.">
+  <link rel="canonical" href="https://www.joeleyba.com/spanish/">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f0fdf4;
+      --bg-alt: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --success: #16a34a;
+      --success-light: #dcfce7;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --purple: #8b5cf6;
+      --border: #e2e8f0;
+      --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.07), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+      --shadow-sm: 0 2px 4px rgba(0,0,0,0.04);
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --radius-sm: 10px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(135deg, #eef2ff 0%, #f0fdf4 50%, #fef3c7 100%);
+      min-height: 100vh;
+      color: var(--text);
+      line-height: 1.5;
+      padding-bottom: 60px;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 2px solid rgba(226, 232, 240, 0.8);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-container {
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .brand-icon {
+      font-size: 32px;
+      background: #eff6ff;
+      border: 2px solid #bfdbfe;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      box-shadow: 0 2px 8px rgba(37,99,235,0.15);
+    }
+
+    .brand-text h1 {
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-size: 22px;
+      color: #1e3a8a;
+      line-height: 1.1;
+      font-weight: 700;
+    }
+
+    .brand-text p {
+      font-size: 12px;
+      font-weight: 600;
+      color: #059669;
+      letter-spacing: 0.3px;
+    }
+
+    .header-stats {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .stat-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #ffffff;
+      border: 1.5px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-weight: 700;
+      font-size: 14px;
+      color: #334155;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .stat-badge.fire { color: #ea580c; border-color: #fdba74; background: #fff7ed; }
+    .stat-badge.star { color: #d97706; border-color: #fde68a; background: #fefce8; }
+
+    /* Navigation tabs */
+    .nav-tabs {
+      max-width: 1020px;
+      margin: 20px auto 0;
+      padding: 0 20px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .nav-tabs::-webkit-scrollbar { display: none; }
+
+    .tab-btn {
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 10px 20px;
+      border: none;
+      background: rgba(255, 255, 255, 0.7);
+      color: #475569;
+      border-radius: 14px 14px 0 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      border-top: 3px solid transparent;
+      white-space: nowrap;
+    }
+
+    .tab-btn:hover {
+      background: #ffffff;
+      color: var(--primary);
+    }
+
+    .tab-btn.active {
+      background: #ffffff;
+      color: var(--primary);
+      border-top: 3px solid var(--primary);
+      box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    /* Main Container */
+    main {
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .view-panel {
+      display: none;
+      background: #ffffff;
+      border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+      padding: 28px 24px;
+      box-shadow: var(--shadow);
+      min-height: 520px;
+    }
+
+    .view-panel.active {
+      display: block;
+      animation: fadeIn 0.25s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Controls Bar */
+    .controls-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .level-select-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .level-select-wrap label {
+      font-size: 14px;
+      font-weight: 700;
+      color: #475569;
+    }
+
+    select, input[type="text"] {
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      border: 2px solid var(--border);
+      background: #f8fafc;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    select:focus, input[type="text"]:focus {
+      border-color: var(--primary);
+      background: #ffffff;
+    }
+
+    /* FLASHCARD VIEW */
+    .flashcard-wrapper {
+      max-width: 580px;
+      margin: 0 auto;
+      perspective: 1200px;
+    }
+
+    .flashcard-container {
+      width: 100%;
+      height: 330px;
+      position: relative;
+      cursor: pointer;
+      user-select: none;
+      transform-style: preserve-3d;
+      transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+      border-radius: var(--radius-lg);
+    }
+
+    .flashcard-container.flipped {
+      transform: rotateY(180deg);
+    }
+
+    .card-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+      box-shadow: 0 16px 32px rgba(37, 99, 235, 0.08), 0 4px 8px rgba(0,0,0,0.04);
+      border: 3px solid #e2e8f0;
+      background: #ffffff;
+    }
+
+    .card-front {
+      background: linear-gradient(180deg, #ffffff 0%, #f0f7ff 100%);
+      border-color: #bfdbfe;
+    }
+
+    .card-back {
+      transform: rotateY(180deg);
+      background: linear-gradient(180deg, #ffffff 0%, #f0fdf4 100%);
+      border-color: #bbf7d0;
+    }
+
+    .card-top {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .category-tag {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #e0e7ff;
+      color: #3730a3;
+    }
+
+    .card-audio-btn {
+      background: #eff6ff;
+      border: 2px solid #bfdbfe;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      cursor: pointer;
+      color: var(--primary);
+      transition: all 0.2s;
+    }
+
+    .card-audio-btn:hover {
+      background: var(--primary);
+      color: #ffffff;
+      transform: scale(1.1);
+    }
+
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: auto 0;
+      gap: 12px;
+    }
+
+    .spanish-word {
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-size: 40px;
+      font-weight: 700;
+      color: #1e3a8a;
+      letter-spacing: -0.5px;
+    }
+
+    .english-word {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: #166534;
+    }
+
+    .card-hint {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .card-actions {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .btn {
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 14px;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.15s ease;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.06);
+    }
+
+    .btn:active { transform: translateY(2px); }
+
+    .btn-secondary {
+      background: #f1f5f9;
+      color: #334155;
+    }
+    .btn-secondary:hover { background: #e2e8f0; }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+    }
+    .btn-primary:hover { background: var(--primary-hover); }
+
+    .btn-success {
+      background: #16a34a;
+      color: #ffffff;
+    }
+    .btn-success:hover { background: #15803d; }
+
+    .btn-warning {
+      background: #ea580c;
+      color: #ffffff;
+    }
+    .btn-warning:hover { background: #c2410c; }
+
+    .card-counter {
+      text-align: center;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-top: 14px;
+    }
+
+    /* QUIZ VIEW */
+    .quiz-container {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .quiz-card {
+      background: #ffffff;
+      border: 3px solid #e2e8f0;
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .quiz-prompt-label {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+
+    .quiz-prompt {
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-size: 38px;
+      font-weight: 700;
+      color: #1e3a8a;
+      margin-bottom: 12px;
+    }
+
+    .quiz-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .quiz-options { grid-template-columns: 1fr; }
+    }
+
+    .quiz-option-btn {
+      background: #f8fafc;
+      border: 2.5px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #1e293b;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.15s ease;
+      outline: none;
+    }
+
+    .quiz-option-btn:hover {
+      border-color: var(--primary);
+      background: #eff6ff;
+      transform: translateY(-2px);
+    }
+
+    .quiz-option-btn.correct {
+      background: #dcfce7 !important;
+      border-color: #16a34a !important;
+      color: #15803d !important;
+      transform: scale(1.02);
+    }
+
+    .quiz-option-btn.wrong {
+      background: #fee2e2 !important;
+      border-color: #ef4444 !important;
+      color: #b91c1c !important;
+      opacity: 0.8;
+    }
+
+    /* MATCH GAME */
+    .match-container {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .match-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .match-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .match-tile {
+      background: #ffffff;
+      border: 2.5px solid var(--border);
+      border-radius: var(--radius-md);
+      min-height: 90px;
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.2s ease;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .match-tile:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .match-tile.selected {
+      border-color: var(--primary);
+      background: #eff6ff;
+      color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(37,99,235,0.2);
+    }
+
+    .match-tile.matched {
+      background: #dcfce7;
+      border-color: #22c55e;
+      color: #15803d;
+      opacity: 0.6;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    /* WORD EXPLORER */
+    .explorer-search-bar {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .explorer-search-bar input {
+      flex: 1;
+      min-width: 220px;
+    }
+
+    .vocab-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+    }
+
+    table.vocab-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    table.vocab-table th {
+      background: #f8fafc;
+      padding: 12px 16px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-muted);
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    table.vocab-table td {
+      padding: 12px 16px;
+      font-size: 15px;
+      border-bottom: 1px solid var(--border);
+      color: #334155;
+    }
+
+    table.vocab-table tr:hover td {
+      background: #f8fafc;
+    }
+
+    .table-spanish {
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: #1e3a8a;
+    }
+
+    .table-audio-btn {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 8px;
+      width: 32px;
+      height: 32px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 16px;
+      margin-right: 8px;
+      vertical-align: middle;
+      color: var(--primary);
+    }
+
+    .table-audio-btn:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    /* TROPHIES / PROGRESS */
+    .levels-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .level-card {
+      background: #f8fafc;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .level-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .level-card.completed {
+      background: #f0fdf4;
+      border-color: #86efac;
+    }
+
+    .level-number {
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: #1e3a8a;
+    }
+
+    .level-card.completed .level-number { color: #166534; }
+
+    .level-stars {
+      margin-top: 6px;
+      font-size: 16px;
+    }
+
+    /* Confetti Canvas */
+    #confetti-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #0f172a;
+      color: #ffffff;
+      padding: 12px 20px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 14px;
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3);
+      display: none;
+      z-index: 1000;
+      animation: fadeIn 0.2s;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Audio synthesizer sounds -->
+  <canvas id="confetti-canvas"></canvas>
+  <div id="toast" class="toast"></div>
+
+  <header>
+    <div class="header-container">
+      <a href="#" class="brand">
+        <div class="brand-icon">🌟</div>
+        <div class="brand-text">
+          <h1>¡Palabras Mágicas!</h1>
+          <p>600 Core Conversational Spanish Words</p>
+        </div>
+      </a>
+
+      <div class="header-stats">
+        <div class="stat-badge fire" title="Current Quiz Streak">
+          🔥 <span id="streak-count">0</span>
+        </div>
+        <div class="stat-badge star" title="Mastered Words">
+          ⭐ <span id="mastered-count">0</span> / 603
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="nav-tabs">
+    <button class="tab-btn active" data-tab="flashcards">🗂️ Flashcards</button>
+    <button class="tab-btn" data-tab="quiz">⚡ Quiz Game</button>
+    <button class="tab-btn" data-tab="match">🧩 Speed Match</button>
+    <button class="tab-btn" data-tab="explorer">📚 All Words</button>
+    <button class="tab-btn" data-tab="trophies">🏆 Levels & Badges</button>
+  </nav>
+
+  <main>
+    <!-- 1. FLASHCARDS -->
+    <div id="tab-flashcards" class="view-panel active">
+      <div class="controls-bar">
+        <div class="level-select-wrap">
+          <label for="fc-level-select">Misión / Level:</label>
+          <select id="fc-level-select"></select>
+        </div>
+        <div style="font-size: 13px; font-weight: 700; color: var(--text-muted);">
+          Tap card or press [Space] to flip • [← / →] to navigate
+        </div>
+      </div>
+
+      <div class="flashcard-wrapper">
+        <div class="flashcard-container" id="flashcard">
+          <!-- FRONT -->
+          <div class="card-face card-front">
+            <div class="card-top">
+              <span class="category-tag" id="fc-category">Palabra</span>
+              <button class="card-audio-btn" id="fc-speak-btn" title="Pronounce Spanish">🔊</button>
+            </div>
+            <div class="card-body">
+              <div class="spanish-word" id="fc-spanish">¿cómo te llamas?</div>
+              <div class="card-hint">Haz clic para ver en inglés</div>
+            </div>
+            <div style="font-size: 13px; color: var(--text-muted); font-weight: 600;">(Front / Frente)</div>
+          </div>
+
+          <!-- BACK -->
+          <div class="card-face card-back">
+            <div class="card-top">
+              <span class="category-tag" style="background:#dcfce7; color:#166534;">English Meaning</span>
+              <button class="card-audio-btn" id="fc-speak-btn-back" title="Pronounce Spanish">🔊</button>
+            </div>
+            <div class="card-body">
+              <div class="english-word" id="fc-english">what is your name?</div>
+              <div class="card-hint" id="fc-spanish-sub" style="color:#2563eb; font-weight:700;">¿cómo te llamas?</div>
+            </div>
+            <div style="font-size: 13px; color: var(--text-muted); font-weight: 600;">(Back / Reverso)</div>
+          </div>
+        </div>
+
+        <div class="card-counter" id="fc-counter">1 of 20</div>
+
+        <div class="card-actions">
+          <button class="btn btn-secondary" id="fc-prev-btn">⬅️ Previous</button>
+          <button class="btn btn-warning" id="fc-review-btn">🔁 Review Again</button>
+          <button class="btn btn-success" id="fc-master-btn">⭐ Mastered!</button>
+          <button class="btn btn-primary" id="fc-next-btn">Next ➡️</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. QUIZ GAME -->
+    <div id="tab-quiz" class="view-panel">
+      <div class="controls-bar">
+        <div class="level-select-wrap">
+          <label for="quiz-level-select">Level:</label>
+          <select id="quiz-level-select"></select>
+        </div>
+        <div class="level-select-wrap">
+          <label for="quiz-mode-select">Game Mode:</label>
+          <select id="quiz-mode-select">
+            <option value="es-en">Spanish ➔ English</option>
+            <option value="en-es">English ➔ Spanish</option>
+            <option value="listening">🎧 Listening Challenge</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="quiz-container">
+        <div class="quiz-card">
+          <div class="quiz-prompt-label" id="quiz-prompt-label">What does this mean?</div>
+          <div class="quiz-prompt" id="quiz-prompt">---</div>
+          <button class="btn btn-secondary" id="quiz-audio-btn" style="margin-top: 8px;">🔊 Play Sound</button>
+
+          <div class="quiz-options" id="quiz-options">
+            <!-- 4 Multiple Choice Buttons generated by JS -->
+          </div>
+        </div>
+
+        <div style="text-align: center;">
+          <button class="btn btn-primary" id="quiz-next-btn" style="display: none; margin: 0 auto;">Next Question ➔</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. SPEED MATCH -->
+    <div id="tab-match" class="view-panel">
+      <div class="controls-bar">
+        <div class="level-select-wrap">
+          <label for="match-level-select">Level:</label>
+          <select id="match-level-select"></select>
+        </div>
+        <button class="btn btn-secondary" id="match-restart-btn">🔄 Restart Round</button>
+      </div>
+
+      <div class="match-container">
+        <p style="text-align: center; color: var(--text-muted); font-weight: 700; margin-bottom: 12px;">
+          Tap a Spanish word and its English match!
+        </p>
+        <div class="match-grid" id="match-grid">
+          <!-- 12 Tiles generated by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. ALL WORDS EXPLORER -->
+    <div id="tab-explorer" class="view-panel">
+      <div class="explorer-search-bar">
+        <input type="text" id="explorer-search" placeholder="🔍 Search in Spanish or English...">
+        <select id="explorer-category-filter">
+          <option value="ALL">All Categories</option>
+          <option value="Questions & Chat">Questions & Chat</option>
+          <option value="Greetings & Manners">Greetings & Manners</option>
+          <option value="Action Verbs">Action Verbs</option>
+          <option value="Connecting Words">Connecting Words</option>
+          <option value="People & Pronouns">People & Pronouns</option>
+          <option value="Time & Routine">Time & Routine</option>
+          <option value="Articles & Pointers">Articles & Pointers</option>
+          <option value="Vocabulary">General Vocabulary</option>
+        </select>
+        <select id="explorer-level-filter">
+          <option value="ALL">All Levels (1-31)</option>
+        </select>
+      </div>
+
+      <div class="vocab-table-wrap">
+        <table class="vocab-table">
+          <thead>
+            <tr>
+              <th style="width: 50px;">#</th>
+              <th>Spanish (Español)</th>
+              <th>English Meaning</th>
+              <th>Category</th>
+              <th style="width: 80px;">Level</th>
+            </tr>
+          </thead>
+          <tbody id="explorer-tbody">
+            <!-- Table rows populated by JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 5. TROPHIES & BADGES -->
+    <div id="tab-trophies" class="view-panel">
+      <h2 style="font-family: 'Fredoka', cursive; font-size: 26px; color: #1e3a8a; margin-bottom: 8px;">
+        Tu Progreso (Your Journey)
+      </h2>
+      <p style="color: var(--text-muted); font-size: 15px; margin-bottom: 20px;">
+        Complete all 20 words in a level to unlock its golden badge!
+      </p>
+
+      <div class="levels-grid" id="levels-badges-grid">
+        <!-- Badges generated by JS -->
+      </div>
+
+      <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); display: flex; justify-content: flex-end;">
+        <button class="btn btn-secondary" id="reset-progress-btn" style="color: #ef4444;">⚠️ Reset Progress</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- VOCABULARY DATA EMBEDDED DIRECTLY -->
+  <script>
+    const VOCAB_DATA = [{"id":1,"spanish":"¿cómo se llama?","english":"what is your name?, what is it called?","category":"Questions & Chat","level":1},{"id":2,"spanish":"¿cómo te llamas?","english":"what is your name?","category":"Questions & Chat","level":1},{"id":3,"spanish":"¿cómo?","english":"how?","category":"Questions & Chat","level":1},{"id":4,"spanish":"¿no es así?","english":"isn't that right?","category":"Questions & Chat","level":1},{"id":5,"spanish":"¿por qué no?","english":"why not?","category":"Questions & Chat","level":1},{"id":6,"spanish":"¿por qué?","english":"why?","category":"Questions & Chat","level":1},{"id":7,"spanish":"¿qué pasa?","english":"what's happening?, what's going on?","category":"Questions & Chat","level":1},{"id":8,"spanish":"¿qué pasó?","english":"what happened?, what's been going on?, what's up?","category":"Questions & Chat","level":1},{"id":9,"spanish":"¿qué tal...?","english":"hello, what about ...?, how's it going?, what's up?, what do you think of that?","category":"Questions & Chat","level":1},{"id":10,"spanish":"¿qué te pasa?","english":"what's the matter?, what's the matter with you?","category":"Questions & Chat","level":1},{"id":11,"spanish":"a","english":"at, to","category":"Vocabulary","level":1},{"id":12,"spanish":"a pesar de","english":"in spite of","category":"Vocabulary","level":1},{"id":13,"spanish":"a ver","english":"let's see","category":"Action Verbs","level":1},{"id":14,"spanish":"abajo","english":"down, below, under","category":"Vocabulary","level":1},{"id":15,"spanish":"abrir","english":"to open","category":"Action Verbs","level":1},{"id":16,"spanish":"abuelo (abuela)","english":"grandfather/grandmother","category":"Vocabulary","level":1},{"id":17,"spanish":"acá","english":"here, over here","category":"Vocabulary","level":1},{"id":18,"spanish":"acabar","english":"to finish, to exhaust","category":"Action Verbs","level":1},{"id":19,"spanish":"acaso","english":"perhaps, maybe","category":"Vocabulary","level":1},{"id":20,"spanish":"aceptar","english":"to accept","category":"Action Verbs","level":1},{"id":21,"spanish":"acercarse","english":"to move close, to draw nearer","category":"Action Verbs","level":2},{"id":22,"spanish":"acuerdo","english":"agreement","category":"Vocabulary","level":2},{"id":23,"spanish":"adelante","english":"come in, proceed, go ahead","category":"Vocabulary","level":2},{"id":24,"spanish":"además","english":"in addition, furthermore, plus","category":"Vocabulary","level":2},{"id":25,"spanish":"adiós","english":"good-bye","category":"Greetings & Manners","level":2},{"id":26,"spanish":"adonde","english":"where","category":"Vocabulary","level":2},{"id":27,"spanish":"agradecer","english":"to thank, to give thanks","category":"Action Verbs","level":2},{"id":28,"spanish":"agua","english":"water","category":"Vocabulary","level":2},{"id":29,"spanish":"ahí","english":"there","category":"Vocabulary","level":2},{"id":30,"spanish":"ahora","english":"now","category":"Time & Routine","level":2},{"id":31,"spanish":"al [a + el]","english":"to the, at the","category":"Action Verbs","level":2},{"id":32,"spanish":"alcanzar","english":"to reach, to catch up to","category":"Action Verbs","level":2},{"id":33,"spanish":"alejarse","english":"to move farther away, to distance, to get","category":"Action Verbs","level":2},{"id":34,"spanish":"algo","english":"something","category":"Vocabulary","level":2},{"id":35,"spanish":"alguien","english":"somebody, someone","category":"Vocabulary","level":2},{"id":36,"spanish":"algún, alguno (alguna)","english":"some","category":"Vocabulary","level":2},{"id":37,"spanish":"allá","english":"there, over there","category":"Vocabulary","level":2},{"id":38,"spanish":"allí","english":"there","category":"Vocabulary","level":2},{"id":39,"spanish":"almirante","english":"admiral","category":"Vocabulary","level":2},{"id":40,"spanish":"alto","english":"tall, high","category":"Vocabulary","level":2},{"id":41,"spanish":"amable","english":"kind","category":"Vocabulary","level":3},{"id":42,"spanish":"amar","english":"to love","category":"Action Verbs","level":3},{"id":43,"spanish":"amigo (amiga)","english":"friend","category":"Vocabulary","level":3},{"id":44,"spanish":"amo (ama)","english":"master/mistress, owner","category":"Vocabulary","level":3},{"id":45,"spanish":"amor","english":"love","category":"Vocabulary","level":3},{"id":46,"spanish":"andar","english":"to walk, to move forward, to associate","category":"Action Verbs","level":3},{"id":47,"spanish":"ángel","english":"angel","category":"Vocabulary","level":3},{"id":48,"spanish":"año","english":"year","category":"Vocabulary","level":3},{"id":49,"spanish":"antes","english":"before","category":"Time & Routine","level":3},{"id":50,"spanish":"antes de que","english":"before","category":"Vocabulary","level":3},{"id":51,"spanish":"aparecer","english":"to appear","category":"Action Verbs","level":3},{"id":52,"spanish":"apostar","english":"to bet","category":"Action Verbs","level":3},{"id":53,"spanish":"aprender","english":"to learn","category":"Action Verbs","level":3},{"id":54,"spanish":"aquel (aquella)","english":"that","category":"Vocabulary","level":3},{"id":55,"spanish":"aquí","english":"here","category":"Vocabulary","level":3},{"id":56,"spanish":"árbol","english":"tree","category":"Vocabulary","level":3},{"id":57,"spanish":"arreglar","english":"to fix","category":"Action Verbs","level":3},{"id":58,"spanish":"arriba","english":"up, above","category":"Vocabulary","level":3},{"id":59,"spanish":"asegurar","english":"to assure, to ensure, to make sure","category":"Action Verbs","level":3},{"id":60,"spanish":"así","english":"like this, like that, in this way, in that way","category":"Vocabulary","level":3},{"id":61,"spanish":"así es","english":"that's right, yes indeed, that's how it is","category":"Vocabulary","level":4},{"id":62,"spanish":"así que","english":"so, therefore","category":"Connecting Words","level":4},{"id":63,"spanish":"asustar","english":"to frighten","category":"Action Verbs","level":4},{"id":64,"spanish":"atacar","english":"to attack","category":"Action Verbs","level":4},{"id":65,"spanish":"ataque","english":"attack","category":"Vocabulary","level":4},{"id":66,"spanish":"atención","english":"attention","category":"Vocabulary","level":4},{"id":67,"spanish":"atrapar","english":"to trap","category":"Action Verbs","level":4},{"id":68,"spanish":"atrás","english":"back, behind","category":"Vocabulary","level":4},{"id":69,"spanish":"aun","english":"even","category":"Vocabulary","level":4},{"id":70,"spanish":"aún","english":"still, yet, even","category":"Vocabulary","level":4},{"id":71,"spanish":"aunque","english":"although","category":"Connecting Words","level":4},{"id":72,"spanish":"auto","english":"auto, car","category":"Vocabulary","level":4},{"id":73,"spanish":"avanzar","english":"to advance, to move forward","category":"Action Verbs","level":4},{"id":74,"spanish":"avión","english":"airplane","category":"Vocabulary","level":4},{"id":75,"spanish":"ay","english":"ay","category":"Vocabulary","level":4},{"id":76,"spanish":"ayuda","english":"help","category":"Vocabulary","level":4},{"id":77,"spanish":"ayudar","english":"to help","category":"Action Verbs","level":4},{"id":78,"spanish":"bajar","english":"to go down, to come down, to lower","category":"Action Verbs","level":4},{"id":79,"spanish":"bajo","english":"low, short , under","category":"Vocabulary","level":4},{"id":80,"spanish":"balón","english":"ball","category":"Vocabulary","level":4},{"id":81,"spanish":"barco","english":"boat, ship","category":"Vocabulary","level":5},{"id":82,"spanish":"bastar","english":"to be enough","category":"Action Verbs","level":5},{"id":83,"spanish":"bebé","english":"baby","category":"Vocabulary","level":5},{"id":84,"spanish":"bello","english":"beautiful","category":"Vocabulary","level":5},{"id":85,"spanish":"bien","english":"well, fine","category":"Vocabulary","level":5},{"id":86,"spanish":"blanco","english":"white","category":"Vocabulary","level":5},{"id":87,"spanish":"bonito","english":"beautiful, pretty","category":"Vocabulary","level":5},{"id":88,"spanish":"bravo","english":"bravo","category":"Vocabulary","level":5},{"id":89,"spanish":"buenas noches","english":"good night","category":"Greetings & Manners","level":5},{"id":90,"spanish":"buenas tardes","english":"good afternoon, good evening","category":"Greetings & Manners","level":5},{"id":91,"spanish":"bueno","english":"good","category":"Vocabulary","level":5},{"id":92,"spanish":"buenos días","english":"good morning, good day","category":"Greetings & Manners","level":5},{"id":93,"spanish":"buscar","english":"to look for, to seek","category":"Action Verbs","level":5},{"id":94,"spanish":"caballero","english":"gentleman, knight","category":"Vocabulary","level":5},{"id":95,"spanish":"cabeza","english":"head","category":"Vocabulary","level":5},{"id":96,"spanish":"cada","english":"each, every","category":"Vocabulary","level":5},{"id":97,"spanish":"caer","english":"to fall","category":"Action Verbs","level":5},{"id":98,"spanish":"callar","english":"to quiet, to silence","category":"Action Verbs","level":5},{"id":99,"spanish":"calle","english":"street","category":"Vocabulary","level":5},{"id":100,"spanish":"calmar","english":"to calm","category":"Action Verbs","level":5},{"id":101,"spanish":"cama","english":"bed","category":"Vocabulary","level":6},{"id":102,"spanish":"cambiar","english":"to change","category":"Action Verbs","level":6},{"id":103,"spanish":"cambio","english":"change, variation, change [money]","category":"Vocabulary","level":6},{"id":104,"spanish":"caminar","english":"to walk, to step","category":"Action Verbs","level":6},{"id":105,"spanish":"camino","english":"road, path","category":"Vocabulary","level":6},{"id":106,"spanish":"campeón","english":"champion","category":"Vocabulary","level":6},{"id":107,"spanish":"campo","english":"country, fi eld","category":"Vocabulary","level":6},{"id":108,"spanish":"cansar","english":"to tire","category":"Action Verbs","level":6},{"id":109,"spanish":"cantar","english":"to sing","category":"Action Verbs","level":6},{"id":110,"spanish":"capitán","english":"captain","category":"Vocabulary","level":6},{"id":111,"spanish":"casa","english":"house","category":"Vocabulary","level":6},{"id":112,"spanish":"casar","english":"to marry, to perform a marriage ceremony","category":"Action Verbs","level":6},{"id":113,"spanish":"casi","english":"almost","category":"Vocabulary","level":6},{"id":114,"spanish":"caso","english":"case, attention","category":"Vocabulary","level":6},{"id":115,"spanish":"cerca","english":"near, close","category":"Vocabulary","level":6},{"id":116,"spanish":"cero","english":"zero","category":"Vocabulary","level":6},{"id":117,"spanish":"cerrar","english":"to close","category":"Action Verbs","level":6},{"id":118,"spanish":"chico (chica)","english":"boy/girl","category":"Vocabulary","level":6},{"id":119,"spanish":"Chocolate","english":"chocolate","category":"Vocabulary","level":6},{"id":120,"spanish":"cielo","english":"sky, heaven","category":"Vocabulary","level":6},{"id":121,"spanish":"ciento","english":"one hundred","category":"Vocabulary","level":7},{"id":122,"spanish":"cierto","english":"certain, true","category":"Vocabulary","level":7},{"id":123,"spanish":"cinco","english":"five","category":"Vocabulary","level":7},{"id":124,"spanish":"cincuenta","english":"fifty","category":"Vocabulary","level":7},{"id":125,"spanish":"ciudad","english":"city","category":"Vocabulary","level":7},{"id":126,"spanish":"claro","english":"clear, bright, light","category":"Vocabulary","level":7},{"id":127,"spanish":"claro que","english":"... of course ...","category":"Vocabulary","level":7},{"id":128,"spanish":"clase","english":"class, type, kind","category":"Vocabulary","level":7},{"id":129,"spanish":"color","english":"color","category":"Vocabulary","level":7},{"id":130,"spanish":"comandante","english":"commander","category":"Vocabulary","level":7},{"id":131,"spanish":"comenzar","english":"to commence, to begin, to start","category":"Action Verbs","level":7},{"id":132,"spanish":"comer","english":"to eat","category":"Action Verbs","level":7},{"id":133,"spanish":"como","english":"like, how","category":"Vocabulary","level":7},{"id":134,"spanish":"compañía","english":"company","category":"Vocabulary","level":7},{"id":135,"spanish":"comprar","english":"to buy","category":"Action Verbs","level":7},{"id":136,"spanish":"comprender","english":"to comprehend, to understand","category":"Action Verbs","level":7},{"id":137,"spanish":"con","english":"with, to","category":"Vocabulary","level":7},{"id":138,"spanish":"confiar","english":"to trust, to rely on, to depend on","category":"Action Verbs","level":7},{"id":139,"spanish":"conmigo","english":"with me","category":"Vocabulary","level":7},{"id":140,"spanish":"conocer","english":"to know (a person or place), to be familiar with (something), to meet","category":"Action Verbs","level":7},{"id":141,"spanish":"conseguir","english":"to get, to acquire","category":"Action Verbs","level":8},{"id":142,"spanish":"contar","english":"to count, to tell","category":"Action Verbs","level":8},{"id":143,"spanish":"contigo","english":"with you","category":"Vocabulary","level":8},{"id":144,"spanish":"continuar","english":"to continue","category":"Action Verbs","level":8},{"id":145,"spanish":"contra","english":"against","category":"Vocabulary","level":8},{"id":146,"spanish":"corazón","english":"heart","category":"Vocabulary","level":8},{"id":147,"spanish":"correr","english":"to run","category":"Action Verbs","level":8},{"id":148,"spanish":"cosa","english":"thing","category":"Vocabulary","level":8},{"id":149,"spanish":"creer","english":"to believe","category":"Action Verbs","level":8},{"id":150,"spanish":"cual","english":"which","category":"Vocabulary","level":8},{"id":151,"spanish":"cualquier (cualquiera)","english":"whatever, whichever, any","category":"Vocabulary","level":8},{"id":152,"spanish":"cuando","english":"when","category":"Vocabulary","level":8},{"id":153,"spanish":"cuánto","english":"how much","category":"Vocabulary","level":8},{"id":154,"spanish":"cuarenta","english":"fourty","category":"Vocabulary","level":8},{"id":155,"spanish":"cuarto","english":"room","category":"Vocabulary","level":8},{"id":156,"spanish":"cuatro","english":"four","category":"Vocabulary","level":8},{"id":157,"spanish":"cuenta","english":"bill, count","category":"Vocabulary","level":8},{"id":158,"spanish":"cuidado","english":"be careful","category":"Vocabulary","level":8},{"id":159,"spanish":"cuidar","english":"to care for, to take care of","category":"Action Verbs","level":8},{"id":160,"spanish":"culpa","english":"blame, fault","category":"Vocabulary","level":8},{"id":161,"spanish":"cumplir","english":"to complete, to accomplish","category":"Action Verbs","level":9},{"id":162,"spanish":"dama","english":"lady","category":"Vocabulary","level":9},{"id":163,"spanish":"dar","english":"to give","category":"Action Verbs","level":9},{"id":164,"spanish":"de","english":"of, from","category":"Vocabulary","level":9},{"id":165,"spanish":"de acuerdo (estar de acuerdo)","english":"agreed, all right (to be in agreement, to agree)","category":"Vocabulary","level":9},{"id":166,"spanish":"de nada","english":"you're welcome","category":"Greetings & Manners","level":9},{"id":167,"spanish":"deber","english":"to ought, must , duty","category":"Action Verbs","level":9},{"id":168,"spanish":"decidir","english":"to decide","category":"Action Verbs","level":9},{"id":169,"spanish":"decir","english":"to say, to tell","category":"Action Verbs","level":9},{"id":170,"spanish":"defensa","english":"defense, defensive player [sports]","category":"Vocabulary","level":9},{"id":171,"spanish":"dejar","english":"to allow, to let, to permit","category":"Action Verbs","level":9},{"id":172,"spanish":"del [de + el]","english":"of the, from the","category":"Vocabulary","level":9},{"id":173,"spanish":"demás","english":"the other, the others","category":"Vocabulary","level":9},{"id":174,"spanish":"demasiado","english":"too much","category":"Vocabulary","level":9},{"id":175,"spanish":"dentro","english":"inside","category":"Vocabulary","level":9},{"id":176,"spanish":"derecho","english":"right","category":"Vocabulary","level":9},{"id":177,"spanish":"descansar","english":"to rest","category":"Action Verbs","level":9},{"id":178,"spanish":"desde","english":"from, since","category":"Vocabulary","level":9},{"id":179,"spanish":"desear","english":"to desire","category":"Action Verbs","level":9},{"id":180,"spanish":"deseo","english":"desire","category":"Vocabulary","level":9},{"id":181,"spanish":"despertar","english":"to wake up","category":"Action Verbs","level":10},{"id":182,"spanish":"después","english":"later","category":"Time & Routine","level":10},{"id":183,"spanish":"detener","english":"to detain, to arrest, to stop","category":"Action Verbs","level":10},{"id":184,"spanish":"día","english":"day","category":"Vocabulary","level":10},{"id":185,"spanish":"diez","english":"ten","category":"Vocabulary","level":10},{"id":186,"spanish":"diferente","english":"different","category":"Vocabulary","level":10},{"id":187,"spanish":"difícil","english":"difficult, hard","category":"Vocabulary","level":10},{"id":188,"spanish":"dinero","english":"money","category":"Vocabulary","level":10},{"id":189,"spanish":"Dios","english":"God","category":"Vocabulary","level":10},{"id":190,"spanish":"dirigir","english":"to direct, to guide","category":"Action Verbs","level":10},{"id":191,"spanish":"disculpar","english":"to excuse","category":"Action Verbs","level":10},{"id":192,"spanish":"doctor (doctora)","english":"doctor","category":"Vocabulary","level":10},{"id":193,"spanish":"dólar","english":"dollar","category":"Action Verbs","level":10},{"id":194,"spanish":"donde","english":"where","category":"Vocabulary","level":10},{"id":195,"spanish":"dormir","english":"to sleep","category":"Action Verbs","level":10},{"id":196,"spanish":"dos","english":"two","category":"Vocabulary","level":10},{"id":197,"spanish":"duda","english":"doubt","category":"Vocabulary","level":10},{"id":198,"spanish":"dudar","english":"to doubt","category":"Action Verbs","level":10},{"id":199,"spanish":"dulce","english":"sweet","category":"Vocabulary","level":10},{"id":200,"spanish":"durante","english":"during, for","category":"Vocabulary","level":10},{"id":201,"spanish":"duro","english":"hard","category":"Vocabulary","level":11},{"id":202,"spanish":"e","english":"and [used instead of y when the following word begins with i or hi]","category":"Vocabulary","level":11},{"id":203,"spanish":"el","english":"the","category":"Articles & Pointers","level":11},{"id":204,"spanish":"él","english":"he","category":"People & Pronouns","level":11},{"id":205,"spanish":"ella","english":"she","category":"People & Pronouns","level":11},{"id":206,"spanish":"empezar","english":"to begin, to start","category":"Action Verbs","level":11},{"id":207,"spanish":"en","english":"in, at, on","category":"Vocabulary","level":11},{"id":208,"spanish":"encantar","english":"to enchant, to charm, to delight","category":"Action Verbs","level":11},{"id":209,"spanish":"encontrar","english":"to find","category":"Action Verbs","level":11},{"id":210,"spanish":"enemigo (enemiga)","english":"enemy","category":"Vocabulary","level":11},{"id":211,"spanish":"enseñar","english":"to teach","category":"Action Verbs","level":11},{"id":212,"spanish":"entender","english":"to understand","category":"Action Verbs","level":11},{"id":213,"spanish":"entonces","english":"then","category":"Connecting Words","level":11},{"id":214,"spanish":"entrar","english":"to enter, to get in, to go in","category":"Action Verbs","level":11},{"id":215,"spanish":"entre","english":"between","category":"Vocabulary","level":11},{"id":216,"spanish":"entrenador (entrenadora)","english":"coach","category":"Vocabulary","level":11},{"id":217,"spanish":"enviar","english":"to send","category":"Action Verbs","level":11},{"id":218,"spanish":"equipo","english":"team","category":"Vocabulary","level":11},{"id":219,"spanish":"equivocarse","english":"to mistake, to be mistaken, to be","category":"Action Verbs","level":11},{"id":220,"spanish":"esa","english":"that","category":"Articles & Pointers","level":11},{"id":221,"spanish":"escribir","english":"to write","category":"Action Verbs","level":12},{"id":222,"spanish":"escuchar","english":"to hear, to listen","category":"Action Verbs","level":12},{"id":223,"spanish":"escuela","english":"school","category":"Vocabulary","level":12},{"id":224,"spanish":"ese","english":"that","category":"Articles & Pointers","level":12},{"id":225,"spanish":"eso","english":"that","category":"Vocabulary","level":12},{"id":226,"spanish":"especial","english":"special","category":"Vocabulary","level":12},{"id":227,"spanish":"esperar","english":"to wait, to hope, to expect","category":"Action Verbs","level":12},{"id":228,"spanish":"esposo (esposa)","english":"husband/wife, spouse","category":"Vocabulary","level":12},{"id":229,"spanish":"esta","english":"this","category":"Articles & Pointers","level":12},{"id":230,"spanish":"estado","english":"state","category":"Vocabulary","level":12},{"id":231,"spanish":"estar","english":"to be","category":"Action Verbs","level":12},{"id":232,"spanish":"este","english":"this","category":"Articles & Pointers","level":12},{"id":233,"spanish":"esto","english":"this","category":"Vocabulary","level":12},{"id":234,"spanish":"estudiar","english":"to study","category":"Action Verbs","level":12},{"id":235,"spanish":"existir","english":"to exist","category":"Action Verbs","level":12},{"id":236,"spanish":"explicar","english":"to explain","category":"Action Verbs","level":12},{"id":237,"spanish":"extraño","english":"strange","category":"Vocabulary","level":12},{"id":238,"spanish":"fácil","english":"easy","category":"Vocabulary","level":12},{"id":239,"spanish":"falta","english":"miss, lack","category":"Vocabulary","level":12},{"id":240,"spanish":"faltar","english":"to be lacking, to be missing","category":"Action Verbs","level":12},{"id":241,"spanish":"familia","english":"family","category":"Vocabulary","level":13},{"id":242,"spanish":"favor","english":"favor","category":"Vocabulary","level":13},{"id":243,"spanish":"felicidad","english":"happiness, joy","category":"Vocabulary","level":13},{"id":244,"spanish":"felicidades","english":"congratulations","category":"Vocabulary","level":13},{"id":245,"spanish":"feliz","english":"happy","category":"Greetings & Manners","level":13},{"id":246,"spanish":"feliz navidad","english":"Merry Christmas","category":"Greetings & Manners","level":13},{"id":247,"spanish":"fiesta","english":"party","category":"Vocabulary","level":13},{"id":248,"spanish":"fin","english":"end","category":"Vocabulary","level":13},{"id":249,"spanish":"final","english":"final","category":"Vocabulary","level":13},{"id":250,"spanish":"forma","english":"form","category":"Vocabulary","level":13},{"id":251,"spanish":"frente","english":"front","category":"Vocabulary","level":13},{"id":252,"spanish":"frío","english":"cold","category":"Vocabulary","level":13},{"id":253,"spanish":"fuego","english":"fire","category":"Vocabulary","level":13},{"id":254,"spanish":"fuerte","english":"strong","category":"Vocabulary","level":13},{"id":255,"spanish":"fuerza","english":"strength","category":"Vocabulary","level":13},{"id":256,"spanish":"funcionar","english":"to function, to work, to run","category":"Action Verbs","level":13},{"id":257,"spanish":"ganar","english":"to win","category":"Action Verbs","level":13},{"id":258,"spanish":"gato","english":"cat","category":"Vocabulary","level":13},{"id":259,"spanish":"general","english":"general","category":"Vocabulary","level":13},{"id":260,"spanish":"gente","english":"people","category":"Vocabulary","level":13},{"id":261,"spanish":"golpear","english":"to hit","category":"Action Verbs","level":14},{"id":262,"spanish":"gracias","english":"thank you, thanks","category":"Greetings & Manners","level":14},{"id":263,"spanish":"gran","english":"great","category":"Vocabulary","level":14},{"id":264,"spanish":"grande","english":"large, big, great","category":"Vocabulary","level":14},{"id":265,"spanish":"grupo","english":"group","category":"Vocabulary","level":14},{"id":266,"spanish":"guerra","english":"war","category":"Vocabulary","level":14},{"id":267,"spanish":"gustar","english":"to like (LIT to please)","category":"Action Verbs","level":14},{"id":268,"spanish":"gusto","english":"pleasure","category":"Vocabulary","level":14},{"id":269,"spanish":"haber","english":"to have [helping verb]","category":"Action Verbs","level":14},{"id":270,"spanish":"habitación","english":"bedroom, room","category":"Vocabulary","level":14},{"id":271,"spanish":"hablar","english":"to speak, to talk","category":"Action Verbs","level":14},{"id":272,"spanish":"hacer","english":"to do, to make","category":"Action Verbs","level":14},{"id":273,"spanish":"hacia","english":"toward","category":"Vocabulary","level":14},{"id":274,"spanish":"hasta","english":"until, up to","category":"Greetings & Manners","level":14},{"id":275,"spanish":"hasta la vista","english":"see you later","category":"Greetings & Manners","level":14},{"id":276,"spanish":"hasta luego","english":"see you later (LIT until later)","category":"Greetings & Manners","level":14},{"id":277,"spanish":"hasta pronto","english":"see you soon (LIT until soon)","category":"Greetings & Manners","level":14},{"id":278,"spanish":"hasta que","english":"until","category":"Greetings & Manners","level":14},{"id":279,"spanish":"hay que","english":"it is necessary","category":"Vocabulary","level":14},{"id":280,"spanish":"hermano (hermana)","english":"brother/sister","category":"Vocabulary","level":14},{"id":281,"spanish":"hermoso","english":"beautiful","category":"Vocabulary","level":15},{"id":282,"spanish":"hijo (hija)","english":"son, daughter","category":"Vocabulary","level":15},{"id":283,"spanish":"historia","english":"history, story","category":"Vocabulary","level":15},{"id":284,"spanish":"hola","english":"hi, hello","category":"Greetings & Manners","level":15},{"id":285,"spanish":"hombre","english":"man","category":"Vocabulary","level":15},{"id":286,"spanish":"hora","english":"hour, time","category":"Vocabulary","level":15},{"id":287,"spanish":"horrible","english":"horrible","category":"Vocabulary","level":15},{"id":288,"spanish":"hoy","english":"today","category":"Time & Routine","level":15},{"id":289,"spanish":"idea","english":"idea","category":"Vocabulary","level":15},{"id":290,"spanish":"igual","english":"equal, the same, just the same","category":"Vocabulary","level":15},{"id":291,"spanish":"imaginar","english":"to imagine","category":"Action Verbs","level":15},{"id":292,"spanish":"importante","english":"important","category":"Vocabulary","level":15},{"id":293,"spanish":"importer","english":"to be important to, to matter to, to concern","category":"Action Verbs","level":15},{"id":294,"spanish":"imposible","english":"impossible","category":"Vocabulary","level":15},{"id":295,"spanish":"increíble","english":"incredible","category":"Vocabulary","level":15},{"id":296,"spanish":"intentar","english":"to try","category":"Action Verbs","level":15},{"id":297,"spanish":"interesar","english":"to interest, to matter","category":"Action Verbs","level":15},{"id":298,"spanish":"ir","english":"to go","category":"Action Verbs","level":15},{"id":299,"spanish":"izquierda","english":"left","category":"Vocabulary","level":15},{"id":300,"spanish":"jamás","english":"never","category":"Vocabulary","level":15},{"id":301,"spanish":"jefe","english":"boss, chief, manager","category":"Vocabulary","level":16},{"id":302,"spanish":"joven","english":"young man, young woman","category":"Vocabulary","level":16},{"id":303,"spanish":"juego","english":"game (sports)","category":"Vocabulary","level":16},{"id":304,"spanish":"jugador (jugadora)","english":"player","category":"Vocabulary","level":16},{"id":305,"spanish":"jugar","english":"to play (a game)","category":"Action Verbs","level":16},{"id":306,"spanish":"juguete","english":"toy","category":"Vocabulary","level":16},{"id":307,"spanish":"junto","english":"together","category":"Vocabulary","level":16},{"id":308,"spanish":"jurar","english":"to swear","category":"Action Verbs","level":16},{"id":309,"spanish":"justo","english":"fair, just","category":"Vocabulary","level":16},{"id":310,"spanish":"la","english":"her, you, it, the","category":"Articles & Pointers","level":16},{"id":311,"spanish":"lado","english":"side, place","category":"Vocabulary","level":16},{"id":312,"spanish":"lamentar","english":"to be sorry","category":"Action Verbs","level":16},{"id":313,"spanish":"lanzar","english":"to throw, to launch","category":"Action Verbs","level":16},{"id":314,"spanish":"largo","english":"long","category":"Vocabulary","level":16},{"id":315,"spanish":"las","english":"them, you, the","category":"Articles & Pointers","level":16},{"id":316,"spanish":"le","english":"you, him, her","category":"People & Pronouns","level":16},{"id":317,"spanish":"leer","english":"to read","category":"Action Verbs","level":16},{"id":318,"spanish":"lejos","english":"far away, far","category":"Vocabulary","level":16},{"id":319,"spanish":"les","english":"you, them; to you, to them","category":"People & Pronouns","level":16},{"id":320,"spanish":"levantar","english":"to lift, to raise up","category":"Action Verbs","level":16},{"id":321,"spanish":"ley","english":"law","category":"Vocabulary","level":17},{"id":322,"spanish":"libro","english":"book","category":"Vocabulary","level":17},{"id":323,"spanish":"líder","english":"leader","category":"Action Verbs","level":17},{"id":324,"spanish":"lindo","english":"pretty, handsome, wonderful","category":"Vocabulary","level":17},{"id":325,"spanish":"línea","english":"line","category":"Vocabulary","level":17},{"id":326,"spanish":"listo","english":"ready","category":"Vocabulary","level":17},{"id":327,"spanish":"llamar","english":"to call","category":"Action Verbs","level":17},{"id":328,"spanish":"llegar","english":"to arrive","category":"Action Verbs","level":17},{"id":329,"spanish":"lleno","english":"full","category":"Vocabulary","level":17},{"id":330,"spanish":"llevar","english":"to carry, to take, to lead","category":"Action Verbs","level":17},{"id":331,"spanish":"llorar","english":"to cry, to weep","category":"Action Verbs","level":17},{"id":332,"spanish":"lo","english":"him, you, it","category":"Vocabulary","level":17},{"id":333,"spanish":"lo que","english":"what, that","category":"Vocabulary","level":17},{"id":334,"spanish":"lo siento","english":"I'm sorry","category":"Greetings & Manners","level":17},{"id":335,"spanish":"loco","english":"crazy","category":"Vocabulary","level":17},{"id":336,"spanish":"lograr","english":"to achieve, to reach a goal, to accomplish","category":"Action Verbs","level":17},{"id":337,"spanish":"los","english":"them, you, the","category":"Articles & Pointers","level":17},{"id":338,"spanish":"luego","english":"later, afterward, then","category":"Vocabulary","level":17},{"id":339,"spanish":"lugar","english":"place","category":"Action Verbs","level":17},{"id":340,"spanish":"luz","english":"light","category":"Vocabulary","level":17},{"id":341,"spanish":"madre","english":"mother","category":"Vocabulary","level":18},{"id":342,"spanish":"maestro (maestra)","english":"master, teacher","category":"Vocabulary","level":18},{"id":343,"spanish":"mal","english":"bad","category":"Vocabulary","level":18},{"id":344,"spanish":"maldito","english":"cursed, damned, condemned","category":"Vocabulary","level":18},{"id":345,"spanish":"mamá","english":"mom, mama, mother","category":"Vocabulary","level":18},{"id":346,"spanish":"mañana","english":"morning","category":"Time & Routine","level":18},{"id":347,"spanish":"mano","english":"hand","category":"Vocabulary","level":18},{"id":348,"spanish":"mantener","english":"to maintain, to stay","category":"Action Verbs","level":18},{"id":349,"spanish":"mar","english":"sea","category":"Action Verbs","level":18},{"id":350,"spanish":"maravilloso","english":"marvelous, wonderful","category":"Vocabulary","level":18},{"id":351,"spanish":"marchar","english":"to march, to walk","category":"Action Verbs","level":18},{"id":352,"spanish":"más","english":"more","category":"Vocabulary","level":18},{"id":353,"spanish":"matar","english":"to kill","category":"Action Verbs","level":18},{"id":354,"spanish":"mayor","english":"best, top","category":"Vocabulary","level":18},{"id":355,"spanish":"me","english":"me; to me, of me","category":"People & Pronouns","level":18},{"id":356,"spanish":"medio","english":"half","category":"Vocabulary","level":18},{"id":357,"spanish":"mejor","english":"better, best","category":"Vocabulary","level":18},{"id":358,"spanish":"menos","english":"except, less","category":"Vocabulary","level":18},{"id":359,"spanish":"merecer","english":"to deserve","category":"Action Verbs","level":18},{"id":360,"spanish":"mes","english":"month","category":"Vocabulary","level":18},{"id":361,"spanish":"mi","english":"my","category":"Vocabulary","level":19},{"id":362,"spanish":"miedo","english":"fear","category":"Vocabulary","level":19},{"id":363,"spanish":"mientras","english":"while","category":"Vocabulary","level":19},{"id":364,"spanish":"mil","english":"thousand, one thousand","category":"Vocabulary","level":19},{"id":365,"spanish":"minuto","english":"minute","category":"Vocabulary","level":19},{"id":366,"spanish":"mío","english":"mine, my, of mine","category":"Vocabulary","level":19},{"id":367,"spanish":"mirar","english":"to look at","category":"Action Verbs","level":19},{"id":368,"spanish":"mismo","english":"same","category":"Vocabulary","level":19},{"id":369,"spanish":"modo","english":"manner, way, custom","category":"Vocabulary","level":19},{"id":370,"spanish":"molestar","english":"to bother","category":"Action Verbs","level":19},{"id":371,"spanish":"momento","english":"moment","category":"Vocabulary","level":19},{"id":372,"spanish":"morir","english":"to die","category":"Action Verbs","level":19},{"id":373,"spanish":"mover","english":"to move","category":"Action Verbs","level":19},{"id":374,"spanish":"muchacho (muchacha)","english":"boy/girl, child, kid","category":"Vocabulary","level":19},{"id":375,"spanish":"muchas gracias","english":"thank you very much","category":"Vocabulary","level":19},{"id":376,"spanish":"mucho","english":"a lot, many","category":"Vocabulary","level":19},{"id":377,"spanish":"muerte","english":"death","category":"Vocabulary","level":19},{"id":378,"spanish":"mujer","english":"woman, wife","category":"Action Verbs","level":19},{"id":379,"spanish":"mundo","english":"world","category":"Vocabulary","level":19},{"id":380,"spanish":"muy","english":"very","category":"Vocabulary","level":19},{"id":381,"spanish":"muy bien","english":"very well, quite fine","category":"Vocabulary","level":20},{"id":382,"spanish":"nada","english":"nothing","category":"Vocabulary","level":20},{"id":383,"spanish":"nadie","english":"nobody, no one","category":"Vocabulary","level":20},{"id":384,"spanish":"navidad","english":"Christmas","category":"Vocabulary","level":20},{"id":385,"spanish":"necesitar","english":"to need","category":"Action Verbs","level":20},{"id":386,"spanish":"negro","english":"black","category":"Vocabulary","level":20},{"id":387,"spanish":"ni","english":"neither, nor","category":"Vocabulary","level":20},{"id":388,"spanish":"ningún, ninguno (ninguna)","english":"no, any","category":"Vocabulary","level":20},{"id":389,"spanish":"niño (niña)","english":"boy/girl, child","category":"Vocabulary","level":20},{"id":390,"spanish":"no","english":"no, not","category":"Vocabulary","level":20},{"id":391,"spanish":"noche","english":"night","category":"Vocabulary","level":20},{"id":392,"spanish":"nombre","english":"name","category":"Vocabulary","level":20},{"id":393,"spanish":"nos","english":"us; to us","category":"People & Pronouns","level":20},{"id":394,"spanish":"nosotros (nosotras)","english":"we","category":"Vocabulary","level":20},{"id":395,"spanish":"nuestro","english":"our","category":"Vocabulary","level":20},{"id":396,"spanish":"nueve","english":"nine","category":"Vocabulary","level":20},{"id":397,"spanish":"nuevo","english":"new","category":"Vocabulary","level":20},{"id":398,"spanish":"número","english":"number","category":"Vocabulary","level":20},{"id":399,"spanish":"nunca","english":"never","category":"Time & Routine","level":20},{"id":400,"spanish":"o","english":"or","category":"Connecting Words","level":20},{"id":401,"spanish":"ocho","english":"eight","category":"Vocabulary","level":21},{"id":402,"spanish":"ocupar","english":"to occupy, to take care of","category":"Action Verbs","level":21},{"id":403,"spanish":"ocurrir","english":"to occur, to happen, to be going on","category":"Action Verbs","level":21},{"id":404,"spanish":"oficial","english":"official, officer","category":"Vocabulary","level":21},{"id":405,"spanish":"ofrecer","english":"to off er","category":"Action Verbs","level":21},{"id":406,"spanish":"oír","english":"to hear","category":"Action Verbs","level":21},{"id":407,"spanish":"ojo","english":"eye","category":"Vocabulary","level":21},{"id":408,"spanish":"olvidar","english":"to forget, to leave behind","category":"Action Verbs","level":21},{"id":409,"spanish":"opinión","english":"opinion","category":"Vocabulary","level":21},{"id":410,"spanish":"oportunidad","english":"opportunity","category":"Vocabulary","level":21},{"id":411,"spanish":"orden","english":"order","category":"Vocabulary","level":21},{"id":412,"spanish":"ordenar","english":"to order, to command","category":"Action Verbs","level":21},{"id":413,"spanish":"otro","english":"other, another","category":"Vocabulary","level":21},{"id":414,"spanish":"padre","english":"father","category":"Vocabulary","level":21},{"id":415,"spanish":"pagar","english":"to pay","category":"Action Verbs","level":21},{"id":416,"spanish":"país","english":"country, nation","category":"Vocabulary","level":21},{"id":417,"spanish":"palabra","english":"word","category":"Vocabulary","level":21},{"id":418,"spanish":"papá","english":"dad, papa, father","category":"Vocabulary","level":21},{"id":419,"spanish":"par","english":"pair, couple","category":"Action Verbs","level":21},{"id":420,"spanish":"para","english":"for","category":"Vocabulary","level":21},{"id":421,"spanish":"para que","english":"so that, in order to","category":"Vocabulary","level":22},{"id":422,"spanish":"parar","english":"to stop","category":"Action Verbs","level":22},{"id":423,"spanish":"parecer","english":"to seem, to look like","category":"Action Verbs","level":22},{"id":424,"spanish":"parte","english":"part","category":"Vocabulary","level":22},{"id":425,"spanish":"pasado","english":"past","category":"Vocabulary","level":22},{"id":426,"spanish":"pasar","english":"to pass, to spend (time), to enter","category":"Action Verbs","level":22},{"id":427,"spanish":"paso","english":"step","category":"Vocabulary","level":22},{"id":428,"spanish":"pedir","english":"to ask for, to request","category":"Action Verbs","level":22},{"id":429,"spanish":"pelea","english":"fight","category":"Vocabulary","level":22},{"id":430,"spanish":"pelear","english":"to fight","category":"Action Verbs","level":22},{"id":431,"spanish":"pensar","english":"to think","category":"Action Verbs","level":22},{"id":432,"spanish":"peor","english":"worse","category":"Vocabulary","level":22},{"id":433,"spanish":"pequeño","english":"small, little","category":"Vocabulary","level":22},{"id":434,"spanish":"perder","english":"to lose","category":"Action Verbs","level":22},{"id":435,"spanish":"perdón","english":"pardon, forgiveness","category":"Vocabulary","level":22},{"id":436,"spanish":"perdonar","english":"to pardon, to forgive","category":"Action Verbs","level":22},{"id":437,"spanish":"perfecto","english":"perfect","category":"Vocabulary","level":22},{"id":438,"spanish":"permitir","english":"to permit, to allow","category":"Action Verbs","level":22},{"id":439,"spanish":"pero","english":"but","category":"Connecting Words","level":22},{"id":440,"spanish":"perro","english":"dog","category":"Vocabulary","level":22},{"id":441,"spanish":"persona","english":"person","category":"Vocabulary","level":23},{"id":442,"spanish":"pié","english":"foot","category":"Vocabulary","level":23},{"id":443,"spanish":"placer","english":"pleasure","category":"Action Verbs","level":23},{"id":444,"spanish":"pobre","english":"poor","category":"Vocabulary","level":23},{"id":445,"spanish":"poco","english":"little","category":"Vocabulary","level":23},{"id":446,"spanish":"poder","english":"to be able to [often \"can\" in English]","category":"Action Verbs","level":23},{"id":447,"spanish":"policía","english":"policeman, policewoman","category":"Vocabulary","level":23},{"id":448,"spanish":"poner","english":"to put, to set","category":"Action Verbs","level":23},{"id":449,"spanish":"por","english":"for, by","category":"Vocabulary","level":23},{"id":450,"spanish":"por favor","english":"please","category":"Greetings & Manners","level":23},{"id":451,"spanish":"por supuesto","english":"of course","category":"Vocabulary","level":23},{"id":452,"spanish":"porque","english":"because","category":"Connecting Words","level":23},{"id":453,"spanish":"posible","english":"possible","category":"Vocabulary","level":23},{"id":454,"spanish":"preferir","english":"to prefer","category":"Action Verbs","level":23},{"id":455,"spanish":"pregunta","english":"question","category":"Vocabulary","level":23},{"id":456,"spanish":"preguntar","english":"to ask (a question)","category":"Action Verbs","level":23},{"id":457,"spanish":"preocupar","english":"to concern, to worry, to bother","category":"Action Verbs","level":23},{"id":458,"spanish":"preparar","english":"to prepare","category":"Action Verbs","level":23},{"id":459,"spanish":"presentar","english":"to present, to introduce","category":"Action Verbs","level":23},{"id":460,"spanish":"presidente","english":"president","category":"Vocabulary","level":23},{"id":461,"spanish":"primer","english":"first","category":"Action Verbs","level":24},{"id":462,"spanish":"prisa","english":"hurry","category":"Vocabulary","level":24},{"id":463,"spanish":"probar","english":"to try, to test, to taste","category":"Action Verbs","level":24},{"id":464,"spanish":"problema","english":"problem","category":"Vocabulary","level":24},{"id":465,"spanish":"professor (profesora)","english":"professor, teacher","category":"Vocabulary","level":24},{"id":466,"spanish":"prometer","english":"to promise","category":"Action Verbs","level":24},{"id":467,"spanish":"pronto","english":"soon","category":"Vocabulary","level":24},{"id":468,"spanish":"propio","english":"own","category":"Vocabulary","level":24},{"id":469,"spanish":"próximo","english":"next","category":"Vocabulary","level":24},{"id":470,"spanish":"proyecto","english":"project","category":"Vocabulary","level":24},{"id":471,"spanish":"pueblo","english":"town, townspeople, people","category":"Vocabulary","level":24},{"id":472,"spanish":"puerta","english":"door, gate","category":"Vocabulary","level":24},{"id":473,"spanish":"pues","english":"well","category":"Vocabulary","level":24},{"id":474,"spanish":"punto","english":"period, dot, point, spot [place]","category":"Vocabulary","level":24},{"id":475,"spanish":"que","english":"that, than","category":"Vocabulary","level":24},{"id":476,"spanish":"qué","english":"what?","category":"Vocabulary","level":24},{"id":477,"spanish":"quedar","english":"to remain","category":"Action Verbs","level":24},{"id":478,"spanish":"querer","english":"to want, to love","category":"Action Verbs","level":24},{"id":479,"spanish":"querido","english":"beloved, dear","category":"Vocabulary","level":24},{"id":480,"spanish":"quién","english":"who?","category":"Vocabulary","level":24},{"id":481,"spanish":"quieto","english":"still","category":"Vocabulary","level":25},{"id":482,"spanish":"quitar","english":"to remove","category":"Action Verbs","level":25},{"id":483,"spanish":"quizá","english":"perhaps, maybe","category":"Vocabulary","level":25},{"id":484,"spanish":"rápido","english":"fast, quick, rapid","category":"Vocabulary","level":25},{"id":485,"spanish":"razón","english":"reason","category":"Vocabulary","level":25},{"id":486,"spanish":"realidad","english":"reality","category":"Vocabulary","level":25},{"id":487,"spanish":"recibir","english":"to receive","category":"Action Verbs","level":25},{"id":488,"spanish":"recordar","english":"to remember, to remind","category":"Action Verbs","level":25},{"id":489,"spanish":"referirse","english":"to refer, to mean","category":"Action Verbs","level":25},{"id":490,"spanish":"regalo","english":"gift, present","category":"Vocabulary","level":25},{"id":491,"spanish":"regresar","english":"to return","category":"Action Verbs","level":25},{"id":492,"spanish":"reina","english":"queen","category":"Vocabulary","level":25},{"id":493,"spanish":"retirarse","english":"to retire","category":"Action Verbs","level":25},{"id":494,"spanish":"rey","english":"king","category":"Vocabulary","level":25},{"id":495,"spanish":"ridículo","english":"ridiculous","category":"Vocabulary","level":25},{"id":496,"spanish":"robar","english":"to rob, to steal","category":"Action Verbs","level":25},{"id":497,"spanish":"romper","english":"to break","category":"Action Verbs","level":25},{"id":498,"spanish":"saber","english":"to know","category":"Action Verbs","level":25},{"id":499,"spanish":"sacar","english":"to take out, to pull out","category":"Action Verbs","level":25},{"id":500,"spanish":"salir","english":"to leave","category":"Action Verbs","level":25},{"id":501,"spanish":"salvar","english":"to save","category":"Action Verbs","level":26},{"id":502,"spanish":"santo","english":"holy, good, saintly","category":"Vocabulary","level":26},{"id":503,"spanish":"se","english":"to him, to her, to you, to them","category":"Action Verbs","level":26},{"id":504,"spanish":"seguir","english":"to continue, to follow","category":"Action Verbs","level":26},{"id":505,"spanish":"segundo","english":"second","category":"Vocabulary","level":26},{"id":506,"spanish":"seguro","english":"sure, safe","category":"Vocabulary","level":26},{"id":507,"spanish":"seis","english":"six","category":"Vocabulary","level":26},{"id":508,"spanish":"semana","english":"week","category":"Vocabulary","level":26},{"id":509,"spanish":"señor (señora)","english":"sir, Mr. / ma'am, Mrs.","category":"Vocabulary","level":26},{"id":510,"spanish":"señorita","english":"unmarried woman, Miss","category":"Vocabulary","level":26},{"id":511,"spanish":"sentarse","english":"to sit down","category":"Action Verbs","level":26},{"id":512,"spanish":"sentir","english":"to feel","category":"Action Verbs","level":26},{"id":513,"spanish":"ser","english":"to be","category":"Action Verbs","level":26},{"id":514,"spanish":"serio","english":"serious","category":"Vocabulary","level":26},{"id":515,"spanish":"servir","english":"to serve, to work, to help, to be useful to","category":"Action Verbs","level":26},{"id":516,"spanish":"si","english":"if","category":"Connecting Words","level":26},{"id":517,"spanish":"sí","english":"yes","category":"Vocabulary","level":26},{"id":518,"spanish":"siempre","english":"always","category":"Time & Routine","level":26},{"id":519,"spanish":"siete","english":"seven","category":"Vocabulary","level":26},{"id":520,"spanish":"significar","english":"to mean, to signify","category":"Action Verbs","level":26},{"id":521,"spanish":"silencio","english":"silence","category":"Vocabulary","level":27},{"id":522,"spanish":"sin","english":"without","category":"Vocabulary","level":27},{"id":523,"spanish":"sin embargo","english":"however","category":"Vocabulary","level":27},{"id":524,"spanish":"siquiera","english":"at least","category":"Vocabulary","level":27},{"id":525,"spanish":"sobre","english":"over, about","category":"Vocabulary","level":27},{"id":526,"spanish":"sol","english":"sun","category":"Vocabulary","level":27},{"id":527,"spanish":"solo","english":"alone, single, lonely","category":"Vocabulary","level":27},{"id":528,"spanish":"sólo","english":"only","category":"Vocabulary","level":27},{"id":529,"spanish":"soltar","english":"to let go, to let loose, to free","category":"Action Verbs","level":27},{"id":530,"spanish":"sonar","english":"to sound, to ring","category":"Action Verbs","level":27},{"id":531,"spanish":"soñar","english":"to dream","category":"Action Verbs","level":27},{"id":532,"spanish":"su","english":"his, her, your, their","category":"Vocabulary","level":27},{"id":533,"spanish":"subir","english":"to go up, to get on, to board","category":"Action Verbs","level":27},{"id":534,"spanish":"suceder","english":"to happen","category":"Action Verbs","level":27},{"id":535,"spanish":"sueño","english":"dream","category":"Vocabulary","level":27},{"id":536,"spanish":"suerte","english":"luck","category":"Vocabulary","level":27},{"id":537,"spanish":"suficiente","english":"sufficient, enough","category":"Vocabulary","level":27},{"id":538,"spanish":"suponer","english":"to suppose","category":"Action Verbs","level":27},{"id":539,"spanish":"sus","english":"his, her, your, their","category":"Vocabulary","level":27},{"id":540,"spanish":"suyo","english":"his, her, its, your, their; his, hers, yours, theirs","category":"Vocabulary","level":27},{"id":541,"spanish":"tal","english":"someone called, such, as such","category":"Vocabulary","level":28},{"id":542,"spanish":"tal vez","english":"maybe, perhaps","category":"Vocabulary","level":28},{"id":543,"spanish":"también","english":"also","category":"Connecting Words","level":28},{"id":544,"spanish":"tampoco","english":"neither, either","category":"Connecting Words","level":28},{"id":545,"spanish":"tan","english":"so, such","category":"Vocabulary","level":28},{"id":546,"spanish":"tanto","english":"so much","category":"Vocabulary","level":28},{"id":547,"spanish":"tarde","english":"afternoon, late","category":"Time & Routine","level":28},{"id":548,"spanish":"te","english":"you; to you","category":"People & Pronouns","level":28},{"id":549,"spanish":"temer","english":"to fear, to be afraid of","category":"Action Verbs","level":28},{"id":550,"spanish":"tener","english":"to have","category":"Action Verbs","level":28},{"id":551,"spanish":"tener que","english":"to have to","category":"Action Verbs","level":28},{"id":552,"spanish":"terminar","english":"to finish","category":"Action Verbs","level":28},{"id":553,"spanish":"ti","english":"you","category":"Vocabulary","level":28},{"id":554,"spanish":"tiempo","english":"time, season, weather","category":"Vocabulary","level":28},{"id":555,"spanish":"tierra","english":"earth, land, soil, dirt","category":"Vocabulary","level":28},{"id":556,"spanish":"tío (tía)","english":"uncle/aunt","category":"Vocabulary","level":28},{"id":557,"spanish":"tocar","english":"to touch, to play (an instrument)","category":"Action Verbs","level":28},{"id":558,"spanish":"todavía","english":"still","category":"Vocabulary","level":28},{"id":559,"spanish":"todo","english":"all","category":"Vocabulary","level":28},{"id":560,"spanish":"tomar","english":"to take, to drink","category":"Action Verbs","level":28},{"id":561,"spanish":"tonto","english":"foolish, silly","category":"Vocabulary","level":29},{"id":562,"spanish":"trabajar","english":"to work","category":"Action Verbs","level":29},{"id":563,"spanish":"trabajo","english":"work","category":"Vocabulary","level":29},{"id":564,"spanish":"traer","english":"to bring","category":"Action Verbs","level":29},{"id":565,"spanish":"traje","english":"suit","category":"Vocabulary","level":29},{"id":566,"spanish":"tranquilo","english":"tranquil, quiet, easy","category":"Vocabulary","level":29},{"id":567,"spanish":"tratar","english":"to try","category":"Action Verbs","level":29},{"id":568,"spanish":"treinta","english":"thirty","category":"Vocabulary","level":29},{"id":569,"spanish":"tren","english":"train","category":"Vocabulary","level":29},{"id":570,"spanish":"tres","english":"three","category":"Vocabulary","level":29},{"id":571,"spanish":"triste","english":"sad","category":"Vocabulary","level":29},{"id":572,"spanish":"tu","english":"your","category":"Vocabulary","level":29},{"id":573,"spanish":"tú","english":"you","category":"People & Pronouns","level":29},{"id":574,"spanish":"tus","english":"your","category":"Vocabulary","level":29},{"id":575,"spanish":"tuyo","english":"yours","category":"Vocabulary","level":29},{"id":576,"spanish":"u","english":"or [used instead of o when the following word begins with o or ho]","category":"Vocabulary","level":29},{"id":577,"spanish":"último","english":"last, latest, ultimate","category":"Vocabulary","level":29},{"id":578,"spanish":"único","english":"only, unique","category":"Vocabulary","level":29},{"id":579,"spanish":"unir","english":"to unite, to join, to come together","category":"Action Verbs","level":29},{"id":580,"spanish":"universidad","english":"university","category":"Vocabulary","level":29},{"id":581,"spanish":"uno","english":"one","category":"Vocabulary","level":30},{"id":582,"spanish":"usar","english":"to use","category":"Action Verbs","level":30},{"id":583,"spanish":"usted","english":"you","category":"People & Pronouns","level":30},{"id":584,"spanish":"ustedes","english":"you","category":"People & Pronouns","level":30},{"id":585,"spanish":"veinte","english":"twenty","category":"Vocabulary","level":30},{"id":586,"spanish":"vencer","english":"to conquer, to defeat, to beat","category":"Action Verbs","level":30},{"id":587,"spanish":"vengar","english":"to avenge","category":"Action Verbs","level":30},{"id":588,"spanish":"venir","english":"to come","category":"Action Verbs","level":30},{"id":589,"spanish":"ver","english":"to see","category":"Action Verbs","level":30},{"id":590,"spanish":"verdad","english":"truth","category":"Vocabulary","level":30},{"id":591,"spanish":"vestir","english":"to dress, to put on (clothes)","category":"Action Verbs","level":30},{"id":592,"spanish":"vez","english":"time","category":"Vocabulary","level":30},{"id":593,"spanish":"viajar","english":"to travel","category":"Action Verbs","level":30},{"id":594,"spanish":"viaje","english":"trip","category":"Vocabulary","level":30},{"id":595,"spanish":"vida","english":"life","category":"Vocabulary","level":30},{"id":596,"spanish":"viejo","english":"old","category":"Vocabulary","level":30},{"id":597,"spanish":"vino","english":"wine","category":"Vocabulary","level":30},{"id":598,"spanish":"vivir","english":"to live","category":"Action Verbs","level":30},{"id":599,"spanish":"volar","english":"to fly","category":"Action Verbs","level":30},{"id":600,"spanish":"volver","english":"to return, to go back","category":"Action Verbs","level":30},{"id":601,"spanish":"y","english":"and","category":"Connecting Words","level":31},{"id":602,"spanish":"ya","english":"already, now, right away","category":"Time & Routine","level":31},{"id":603,"spanish":"yo","english":"I","category":"People & Pronouns","level":31}];
+
+    // State
+    let currentTab = 'flashcards';
+    let currentFcLevel = 1;
+    let currentFcIndex = 0;
+    let currentQuizLevel = 1;
+    let currentMatchLevel = 1;
+    let streak = parseInt(localStorage.getItem('es_vocab_streak') || '0', 10);
+    let mastered = new Set(JSON.parse(localStorage.getItem('es_vocab_mastered') || '[]'));
+
+    // Audio helper using native Web Speech Synthesis
+    function speakSpanish(text) {
+      if (!('speechSynthesis' in window)) return;
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'es-ES';
+      utterance.rate = 0.9; // Slightly slower for kids
+      
+      // Try to choose an authentic Spanish voice
+      const voices = window.speechSynthesis.getVoices();
+      const esVoice = voices.find(v => v.lang.startsWith('es-')) || voices.find(v => v.lang.includes('es'));
+      if (esVoice) utterance.voice = esVoice;
+
+      window.speechSynthesis.speak(utterance);
+    }
+
+    // Web Audio Sound Effects (Offline Synthesizer Chimes)
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    function playChime(isCorrect) {
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+
+      if (isCorrect) {
+        // Cheerful ascending major chord
+        const now = audioCtx.currentTime;
+        osc.frequency.setValueAtTime(523.25, now); // C5
+        osc.frequency.setValueAtTime(659.25, now + 0.08); // E5
+        osc.frequency.setValueAtTime(783.99, now + 0.16); // G5
+        gain.gain.setValueAtTime(0.2, now);
+        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.35);
+        osc.start(now);
+        osc.stop(now + 0.35);
+      } else {
+        // Soft error buzz
+        const now = audioCtx.currentTime;
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(160, now);
+        osc.frequency.linearRampToValueAtTime(110, now + 0.2);
+        gain.gain.setValueAtTime(0.15, now);
+        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.25);
+        osc.start(now);
+        osc.stop(now + 0.25);
+      }
+    }
+
+    // Confetti effect
+    function launchConfetti() {
+      const canvas = document.getElementById('confetti-canvas');
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const pieces = [];
+      const colors = ['#2563eb', '#16a34a', '#f59e0b', '#ec4899', '#8b5cf6'];
+      for (let i = 0; i < 60; i++) {
+        pieces.push({
+          x: canvas.width / 2,
+          y: canvas.height / 2,
+          vx: (Math.random() - 0.5) * 14,
+          vy: (Math.random() - 0.8) * 14,
+          size: Math.random() * 8 + 4,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          rotation: Math.random() * 360,
+          rotSpeed: (Math.random() - 0.5) * 10
+        });
+      }
+
+      let frames = 0;
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        pieces.forEach(p => {
+          p.x += p.vx;
+          p.y += p.vy;
+          p.vy += 0.3; // gravity
+          p.rotation += p.rotSpeed;
+          ctx.save();
+          ctx.translate(p.x, p.y);
+          ctx.rotate(p.rotation * Math.PI / 180);
+          ctx.fillStyle = p.color;
+          ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+          ctx.restore();
+        });
+        frames++;
+        if (frames < 50) requestAnimationFrame(animate);
+        else ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+      animate();
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.style.display = 'block';
+      setTimeout(() => { toast.style.display = 'none'; }, 2200);
+    }
+
+    function updateStatsHeader() {
+      document.getElementById('streak-count').textContent = streak;
+      document.getElementById('mastered-count').textContent = mastered.size;
+      localStorage.setItem('es_vocab_streak', streak.toString());
+      localStorage.setItem('es_vocab_mastered', JSON.stringify(Array.from(mastered)));
+      renderTrophiesView();
+    }
+
+    // --- TAB SWITCHING ---
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabBtns.forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.view-panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        const tab = btn.dataset.tab;
+        currentTab = tab;
+        document.getElementById('tab-' + tab).classList.add('active');
+        if (tab === 'quiz') startQuizQuestion();
+        if (tab === 'match') setupMatchGame();
+        if (tab === 'explorer') renderExplorer();
+        if (tab === 'trophies') renderTrophiesView();
+      });
+    });
+
+    // --- POPULATE LEVEL SELECTORS ---
+    const totalLevels = Math.max(...VOCAB_DATA.map(v => v.level));
+    function populateLevelSelectors() {
+      const selects = [
+        document.getElementById('fc-level-select'),
+        document.getElementById('quiz-level-select'),
+        document.getElementById('match-level-select'),
+        document.getElementById('explorer-level-filter')
+      ];
+
+      for (let l = 1; l <= totalLevels; l++) {
+        const wordsInLvl = VOCAB_DATA.filter(v => v.level === l);
+        const label = 'Level ' + l + ' (' + wordsInLvl.length + ' words)';
+        selects.forEach((sel, idx) => {
+          if (!sel) return;
+          const opt = document.createElement('option');
+          opt.value = l;
+          opt.textContent = label;
+          sel.appendChild(opt);
+        });
+      }
+    }
+    populateLevelSelectors();
+
+    // --- FLASHCARD LOGIC ---
+    function getLevelWords(lvl) {
+      return VOCAB_DATA.filter(v => v.level === lvl);
+    }
+
+    const flashcardEl = document.getElementById('flashcard');
+    function updateFlashcard() {
+      const words = getLevelWords(currentFcLevel);
+      if (words.length === 0) return;
+      if (currentFcIndex >= words.length) currentFcIndex = 0;
+      if (currentFcIndex < 0) currentFcIndex = words.length - 1;
+
+      const item = words[currentFcIndex];
+      flashcardEl.classList.remove('flipped');
+
+      document.getElementById('fc-spanish').textContent = item.spanish;
+      document.getElementById('fc-english').textContent = item.english;
+      document.getElementById('fc-spanish-sub').textContent = item.spanish;
+      document.getElementById('fc-category').textContent = item.category;
+      document.getElementById('fc-counter').textContent = (currentFcIndex + 1) + ' of ' + words.length;
+
+      const masterBtn = document.getElementById('fc-master-btn');
+      if (mastered.has(item.id)) {
+        masterBtn.textContent = '🌟 Mastered!';
+        masterBtn.style.background = '#16a34a';
+      } else {
+        masterBtn.textContent = '⭐ Mark Mastered';
+        masterBtn.style.background = '#0284c7';
+      }
+    }
+
+    flashcardEl.addEventListener('click', (e) => {
+      if (e.target.closest('.card-audio-btn')) return;
+      flashcardEl.classList.toggle('flipped');
+    });
+
+    document.getElementById('fc-speak-btn').addEventListener('click', (e) => {
+      e.stopPropagation();
+      const words = getLevelWords(currentFcLevel);
+      if (words[currentFcIndex]) speakSpanish(words[currentFcIndex].spanish);
+    });
+
+    document.getElementById('fc-speak-btn-back').addEventListener('click', (e) => {
+      e.stopPropagation();
+      const words = getLevelWords(currentFcLevel);
+      if (words[currentFcIndex]) speakSpanish(words[currentFcIndex].spanish);
+    });
+
+    document.getElementById('fc-next-btn').addEventListener('click', () => {
+      currentFcIndex++;
+      updateFlashcard();
+    });
+
+    document.getElementById('fc-prev-btn').addEventListener('click', () => {
+      currentFcIndex--;
+      updateFlashcard();
+    });
+
+    document.getElementById('fc-review-btn').addEventListener('click', () => {
+      flashcardEl.classList.toggle('flipped');
+    });
+
+    document.getElementById('fc-master-btn').addEventListener('click', () => {
+      const words = getLevelWords(currentFcLevel);
+      const item = words[currentFcIndex];
+      if (mastered.has(item.id)) {
+        mastered.delete(item.id);
+        showToast('Removed from mastered');
+      } else {
+        mastered.add(item.id);
+        playChime(true);
+        launchConfetti();
+        showToast('⭐ Added to Mastered Words!');
+      }
+      updateStatsHeader();
+      updateFlashcard();
+    });
+
+    document.getElementById('fc-level-select').addEventListener('change', (e) => {
+      currentFcLevel = parseInt(e.target.value, 10);
+      currentFcIndex = 0;
+      updateFlashcard();
+    });
+
+    // Keyboard shortcuts
+    window.addEventListener('keydown', (e) => {
+      if (currentTab !== 'flashcards') return;
+      if (e.code === 'Space') {
+        e.preventDefault();
+        flashcardEl.classList.toggle('flipped');
+      } else if (e.code === 'ArrowRight') {
+        currentFcIndex++;
+        updateFlashcard();
+      } else if (e.code === 'ArrowLeft') {
+        currentFcIndex--;
+        updateFlashcard();
+      }
+    });
+
+    // --- QUIZ LOGIC ---
+    let currentQuizWord = null;
+    let quizAnswered = false;
+
+    function startQuizQuestion() {
+      quizAnswered = false;
+      document.getElementById('quiz-next-btn').style.display = 'none';
+
+      const mode = document.getElementById('quiz-mode-select').value;
+      const words = getLevelWords(currentQuizLevel);
+      if (words.length < 4) return;
+
+      currentQuizWord = words[Math.floor(Math.random() * words.length)];
+
+      // Pick 3 distractors
+      const distractors = [];
+      while (distractors.length < 3) {
+        const rand = VOCAB_DATA[Math.floor(Math.random() * VOCAB_DATA.length)];
+        if (rand.id !== currentQuizWord.id && !distractors.some(d => d.id === rand.id)) {
+          distractors.push(rand);
+        }
+      }
+
+      const options = [currentQuizWord, ...distractors].sort(() => Math.random() - 0.5);
+
+      const promptLabel = document.getElementById('quiz-prompt-label');
+      const promptText = document.getElementById('quiz-prompt');
+      const audioBtn = document.getElementById('quiz-audio-btn');
+
+      if (mode === 'es-en') {
+        promptLabel.textContent = 'What does this mean in English?';
+        promptText.textContent = currentQuizWord.spanish;
+        audioBtn.style.display = 'inline-flex';
+        speakSpanish(currentQuizWord.spanish);
+      } else if (mode === 'en-es') {
+        promptLabel.textContent = 'How do you say this in Spanish?';
+        promptText.textContent = currentQuizWord.english;
+        audioBtn.style.display = 'none';
+      } else { // listening
+        promptLabel.textContent = '🎧 Listen and choose the English meaning:';
+        promptText.textContent = '👂 Escucha...';
+        audioBtn.style.display = 'inline-flex';
+        speakSpanish(currentQuizWord.spanish);
+      }
+
+      audioBtn.onclick = () => speakSpanish(currentQuizWord.spanish);
+
+      const optionsContainer = document.getElementById('quiz-options');
+      optionsContainer.innerHTML = '';
+
+      options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'quiz-option-btn';
+        btn.textContent = (mode === 'en-es') ? opt.spanish : opt.english;
+        btn.addEventListener('click', () => handleQuizAnswer(opt, btn, optionsContainer));
+        optionsContainer.appendChild(btn);
+      });
+    }
+
+    function handleQuizAnswer(selectedOpt, btnEl, container) {
+      if (quizAnswered) return;
+      quizAnswered = true;
+
+      const isCorrect = selectedOpt.id === currentQuizWord.id;
+      if (isCorrect) {
+        btnEl.classList.add('correct');
+        playChime(true);
+        streak++;
+        mastered.add(currentQuizWord.id);
+        launchConfetti();
+      } else {
+        btnEl.classList.add('wrong');
+        playChime(false);
+        streak = 0;
+        // highlight correct
+        const buttons = container.querySelectorAll('.quiz-option-btn');
+        buttons.forEach(b => {
+          if (b.textContent === currentQuizWord.english || b.textContent === currentQuizWord.spanish) {
+            b.classList.add('correct');
+          }
+        });
+      }
+
+      updateStatsHeader();
+      document.getElementById('quiz-next-btn').style.display = 'inline-flex';
+    }
+
+    document.getElementById('quiz-next-btn').addEventListener('click', startQuizQuestion);
+    document.getElementById('quiz-level-select').addEventListener('change', (e) => {
+      currentQuizLevel = parseInt(e.target.value, 10);
+      startQuizQuestion();
+    });
+    document.getElementById('quiz-mode-select').addEventListener('change', startQuizQuestion);
+
+    // --- MATCH GAME LOGIC ---
+    let matchSelected = null;
+    let matchPairsFound = 0;
+
+    function setupMatchGame() {
+      const words = getLevelWords(currentMatchLevel);
+      const chosen = [...words].sort(() => Math.random() - 0.5).slice(0, 6);
+      matchPairsFound = 0;
+      matchSelected = null;
+
+      const items = [];
+      chosen.forEach(w => {
+        items.push({ id: w.id, text: w.spanish, lang: 'es' });
+        items.push({ id: w.id, text: w.english, lang: 'en' });
+      });
+      items.sort(() => Math.random() - 0.5);
+
+      const grid = document.getElementById('match-grid');
+      grid.innerHTML = '';
+
+      items.forEach(item => {
+        const tile = document.createElement('div');
+        tile.className = 'match-tile';
+        tile.textContent = item.text;
+        tile.dataset.id = item.id;
+        tile.dataset.lang = item.lang;
+
+        tile.addEventListener('click', () => handleTileClick(tile, item));
+        grid.appendChild(tile);
+      });
+    }
+
+    function handleTileClick(tile, item) {
+      if (tile.classList.contains('matched') || tile.classList.contains('selected')) return;
+
+      if (item.lang === 'es') speakSpanish(item.text);
+
+      if (!matchSelected) {
+        matchSelected = { tile, item };
+        tile.classList.add('selected');
+      } else {
+        if (matchSelected.tile === tile) return;
+
+        if (matchSelected.item.id === item.id && matchSelected.item.lang !== item.lang) {
+          // MATCH!
+          tile.classList.add('matched');
+          matchSelected.tile.classList.add('matched');
+          matchSelected.tile.classList.remove('selected');
+          matchSelected = null;
+          matchPairsFound++;
+          playChime(true);
+          streak++;
+          updateStatsHeader();
+
+          if (matchPairsFound === 6) {
+            launchConfetti();
+            showToast('🎉 ¡Excelente! Level Round Complete!');
+          }
+        } else {
+          // MISMATCH
+          tile.classList.add('wrong');
+          matchSelected.tile.classList.add('wrong');
+          playChime(false);
+          streak = 0;
+          updateStatsHeader();
+          setTimeout(() => {
+            tile.classList.remove('wrong', 'selected');
+            if (matchSelected) {
+              matchSelected.tile.classList.remove('wrong', 'selected');
+              matchSelected = null;
+            }
+          }, 600);
+        }
+      }
+    }
+
+    document.getElementById('match-restart-btn').addEventListener('click', setupMatchGame);
+    document.getElementById('match-level-select').addEventListener('change', (e) => {
+      currentMatchLevel = parseInt(e.target.value, 10);
+      setupMatchGame();
+    });
+
+    // --- EXPLORER TABLE LOGIC ---
+    function renderExplorer() {
+      const q = document.getElementById('explorer-search').value.toLowerCase().trim();
+      const cat = document.getElementById('explorer-category-filter').value;
+      const lvl = document.getElementById('explorer-level-filter').value;
+
+      const tbody = document.getElementById('explorer-tbody');
+      tbody.innerHTML = '';
+
+      const filtered = VOCAB_DATA.filter(w => {
+        if (q && !w.spanish.toLowerCase().includes(q) && !w.english.toLowerCase().includes(q)) return false;
+        if (cat !== 'ALL' && w.category !== cat) return false;
+        if (lvl !== 'ALL' && w.level !== parseInt(lvl, 10)) return false;
+        return true;
+      });
+
+      filtered.slice(0, 150).forEach(w => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td style="color:var(--text-muted); font-size:13px;">${w.id}</td>
+          <td>
+            <button class="table-audio-btn" title="Pronounce">🔊</button>
+            <span class="table-spanish">${w.spanish}</span>
+          </td>
+          <td style="font-weight:600;">${w.english}</td>
+          <td><span class="category-tag">${w.category}</span></td>
+          <td style="font-weight:700; color:var(--primary);">Lvl ${w.level}</td>
+        `;
+
+        tr.querySelector('.table-audio-btn').addEventListener('click', () => speakSpanish(w.spanish));
+        tbody.appendChild(tr);
+      });
+    }
+
+    document.getElementById('explorer-search').addEventListener('input', renderExplorer);
+    document.getElementById('explorer-category-filter').addEventListener('change', renderExplorer);
+    document.getElementById('explorer-level-filter').addEventListener('change', renderExplorer);
+
+    // --- TROPHIES & BADGES LOGIC ---
+    function renderTrophiesView() {
+      const grid = document.getElementById('levels-badges-grid');
+      grid.innerHTML = '';
+
+      for (let l = 1; l <= totalLevels; l++) {
+        const words = getLevelWords(l);
+        const masteredInLvl = words.filter(w => mastered.has(w.id)).length;
+        const isDone = masteredInLvl === words.length && words.length > 0;
+
+        const card = document.createElement('div');
+        card.className = 'level-card' + (isDone ? ' completed' : '');
+        card.innerHTML = `
+          <div class="level-number">${isDone ? '🏅' : 'Level'} ${l}</div>
+          <div style="font-size:12px; font-weight:700; color:var(--text-muted); margin-top:4px;">
+            ${masteredInLvl} / ${words.length}
+          </div>
+          <div class="level-stars">${isDone ? '⭐⭐⭐' : (masteredInLvl > 0 ? '⭐' : '⚪')}</div>
+        `;
+
+        card.addEventListener('click', () => {
+          currentFcLevel = l;
+          currentFcIndex = 0;
+          document.getElementById('fc-level-select').value = l;
+          document.querySelector('[data-tab="flashcards"]').click();
+        });
+
+        grid.appendChild(card);
+      }
+    }
+
+    document.getElementById('reset-progress-btn').addEventListener('click', () => {
+      if (confirm('Are you sure you want to reset all your mastered stars and streaks?')) {
+        streak = 0;
+        mastered.clear();
+        updateStatsHeader();
+        updateFlashcard();
+        showToast('Progress reset.');
+      }
+    });
+
+    // Initialize
+    updateStatsHeader();
+    updateFlashcard();
+  </script>
+</body>
+</html>
