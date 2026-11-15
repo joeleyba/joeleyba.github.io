@@ -21,7 +21,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta property="og:title" content="Joe Leyba | Minneapolis, MN">
 <meta property="og:description" content="Search and AI in Minneapolis, with an MBA, a Barça Innovation Hub Football Tactical Analyst diploma, and a lifelong soccer habit.">
 <meta property="og:url" content="https://www.joeleyba.com/">
-<meta property="og:image" content="https://www.joeleyba.com/joeleyba-soccer.jpg">
+<meta property="og:image" content="https://www.joeleyba.com/joeleyba-soccer.webp">
 <meta property="og:image:width" content="1024">
 <meta property="og:image:height" content="682">
 <meta property="og:image:alt" content="Juninho running through tactics on the pitch">
@@ -31,7 +31,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="twitter:site" content="@joeleyba">
 <meta name="twitter:title" content="Joe Leyba | Minneapolis, MN">
 <meta name="twitter:description" content="Search and AI in Minneapolis, with an MBA, a Barça Innovation Hub Football Tactical Analyst diploma, and a lifelong soccer habit.">
-<meta name="twitter:image" content="https://www.joeleyba.com/joeleyba-soccer.jpg">
+<meta name="twitter:image" content="https://www.joeleyba.com/joeleyba-soccer.webp">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,7 +43,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   "@type": "Person",
   "name": "Joe Leyba",
   "url": "https://www.joeleyba.com/",
-  "image": "https://www.joeleyba.com/joeleyba-soccer.jpg",
+  "image": "https://www.joeleyba.com/joeleyba-soccer.webp",
   "description": "Associate Director of AI Search & Digital Experience at Bold Orange, specializing in AI search strategy, generative engine optimization (GEO), SEO, and context engineering.",
   "sameAs": [
     "https://twitter.com/joeleyba",
@@ -247,18 +247,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   .media img {
     display: block;
-    width: 100%;
+    width: auto;
+    max-width: 100%;
+    max-height: 520px;
     height: auto;
+    margin: 0 auto;
     border-radius: 20px;
     box-shadow: var(--shadow);
-    object-fit: cover;
-  }
-
-  .media figcaption {
-    margin-top: 12px;
-    font-size: 14px;
-    color: var(--muted);
-    text-align: right;
   }
 
   footer {
@@ -310,11 +305,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         Also picked up an MBA and a Football Tactical Analyst diploma from Barça Innovation Hub along the way.
       </p>
       <nav class="links" aria-label="Social links">
-        <a class="btn btn-primary" href="https://www.linkedin.com/in/joeleyba/">
+        <a class="btn btn-primary" href="https://www.linkedin.com/in/joeleyba/" target="_blank" rel="noopener noreferrer">
           LinkedIn
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
         </a>
-        <a class="btn btn-secondary" href="https://twitter.com/joeleyba">
+        <a class="btn btn-secondary" href="https://twitter.com/joeleyba" target="_blank" rel="noopener noreferrer">
           @joeleyba
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
         </a>
@@ -322,12 +317,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <figure class="media">
-      <picture>
-        <source srcset="joeleyba-soccer.webp" type="image/webp">
-        <img src="joeleyba-soccer.jpg" alt="Juninho running through tactics on the pitch" width="1024" height="682" fetchpriority="high">
-      </picture>
-      <figcaption>Juninho running through tactics on the pitch.</figcaption>
+      <img id="hero-img" src="joeleyba-soccer.webp" alt="Juninho running through tactics on the pitch" width="1024" height="682" fetchpriority="high">
     </figure>
+    <script>
+      (function () {
+        var photos = [
+          { src: "joeleyba-soccer.webp", alt: "Juninho running through tactics on the pitch" },
+          { src: "joeleyba-soccer-2.webp", alt: "Joe Leyba playing soccer in an LA Galaxy jersey" },
+          { src: "joeleyba-falcon.webp", alt: "Joe Leyba in front of the Millennium Falcon" },
+          { src: "joeleyba-twineball.webp", alt: "Joe Leyba at the World's Largest Twine Ball in Darwin, MN" },
+          { src: "joeleyba1.webp", alt: "Joe Leyba" },
+          { src: "joeleyba-old.webp", alt: "Joe Leyba" },
+          { src: "joeleyba-old2.webp", alt: "Joe Leyba" }
+        ];
+        var last = -1;
+        try { last = parseInt(sessionStorage.getItem("lastPhoto") || "-1", 10); } catch (e) {}
+        var idx = Math.floor(Math.random() * photos.length);
+        if (photos.length > 1 && idx === last) {
+          idx = (idx + 1 + Math.floor(Math.random() * (photos.length - 1))) % photos.length;
+        }
+        try { sessionStorage.setItem("lastPhoto", String(idx)); } catch (e) {}
+        var pick = photos[idx];
+        var img = document.getElementById("hero-img");
+        img.src = pick.src;
+        img.alt = pick.alt;
+      })();
+    </script>
   </main>
 
   <footer>
