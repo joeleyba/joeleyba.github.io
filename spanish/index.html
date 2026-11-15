@@ -5,7 +5,7 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>¡Palabras Mágicas! | 600 Core Spanish Words</title>
-  <meta name="description" content="Kid-friendly interactive Spanish vocabulary mastery tool for 600 core conversational words.">
+  <meta name="description" content="Kid-friendly modern interactive Spanish vocabulary app for 600 core conversational words.">
   <link rel="canonical" href="https://www.joeleyba.com/spanish/">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,24 +14,30 @@
 
   <style>
     :root {
-      --bg: #f0fdf4;
-      --bg-alt: #f8fafc;
+      --bg: #f8fafc;
       --card-bg: #ffffff;
       --text: #0f172a;
       --text-muted: #64748b;
       --primary: #2563eb;
-      --primary-hover: #1d4ed8;
-      --success: #16a34a;
-      --success-light: #dcfce7;
+      --primary-dark: #1d4ed8;
+      --primary-light: #eff6ff;
+      --success: #10b981;
+      --success-dark: #059669;
+      --success-light: #ecfdf5;
       --warning: #f59e0b;
+      --warning-dark: #d97706;
       --danger: #ef4444;
+      --danger-dark: #dc2626;
       --purple: #8b5cf6;
-      --orange: #ea580c;
+      --purple-dark: #7c3aed;
       --border: #e2e8f0;
-      --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.07), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
-      --shadow-sm: 0 2px 4px rgba(0,0,0,0.04);
-      --radius-lg: 24px;
-      --radius-md: 16px;
+      --border-dark: #cbd5e1;
+      --shadow-sm: 0 2px 4px rgba(0,0,0,0.03);
+      --shadow-md: 0 10px 25px -5px rgba(15, 23, 42, 0.05), 0 8px 10px -6px rgba(15, 23, 42, 0.03);
+      --shadow-lg: 0 20px 40px -12px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(226, 232, 240, 0.8);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
       --radius-sm: 10px;
     }
 
@@ -39,20 +45,27 @@
 
     body {
       font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-      background: linear-gradient(135deg, #eef2ff 0%, #f0fdf4 50%, #fef3c7 100%);
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(219, 234, 254, 0.6) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(209, 250, 229, 0.5) 0px, transparent 50%),
+        radial-gradient(at 50% 100%, rgba(254, 243, 199, 0.4) 0px, transparent 50%);
+      background-attachment: fixed;
       min-height: 100vh;
       color: var(--text);
       line-height: 1.5;
       padding-bottom: 60px;
     }
 
+    /* TOP HEADER */
     header {
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(12px);
-      border-bottom: 2px solid rgba(226, 232, 240, 0.8);
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.8);
       position: sticky;
       top: 0;
       z-index: 100;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
     }
 
     .header-container {
@@ -74,16 +87,16 @@
     }
 
     .brand-icon {
-      font-size: 30px;
-      background: #eff6ff;
-      border: 2px solid #bfdbfe;
+      font-size: 28px;
+      background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+      border: 1.5px solid #93c5fd;
       width: 48px;
       height: 48px;
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 14px;
-      box-shadow: 0 2px 8px rgba(37,99,235,0.15);
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.12);
     }
 
     .brand-text h1 {
@@ -92,13 +105,14 @@
       color: #1e3a8a;
       line-height: 1.1;
       font-weight: 700;
+      letter-spacing: -0.3px;
     }
 
     .brand-text p {
       font-size: 12px;
-      font-weight: 600;
+      font-weight: 700;
       color: #059669;
-      letter-spacing: 0.3px;
+      letter-spacing: 0.2px;
     }
 
     .header-stats {
@@ -120,92 +134,121 @@
       font-size: 13px;
       color: #334155;
       box-shadow: var(--shadow-sm);
+      transition: all 0.15s ease;
     }
 
-    .stat-badge.fire { color: #ea580c; border-color: #fdba74; background: #fff7ed; }
+    .stat-badge.fire { color: #ea580c; border-color: #fed7aa; background: #fff7ed; }
     .stat-badge.star { color: #d97706; border-color: #fde68a; background: #fefce8; }
     .stat-badge.backpack { color: #7c3aed; border-color: #ddd6fe; background: #f5f3ff; cursor: pointer; }
-    .stat-badge.backpack:hover { background: #ede9fe; }
+    .stat-badge.backpack:hover { transform: translateY(-1px); border-color: #c4b5fd; background: #ede9fe; }
 
-    /* Navigation tabs */
-    .nav-tabs {
+    .header-tool-btn {
+      background: #ffffff;
+      border: 1.5px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #475569;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+      box-shadow: var(--shadow-sm);
+    }
+    .header-tool-btn:hover { background: #f1f5f9; border-color: #cbd5e1; }
+
+    /* MODERN SEGMENTED CAPSULE NAVIGATION */
+    .nav-wrapper {
       max-width: 1080px;
-      margin: 16px auto 0;
+      margin: 18px auto 0;
       padding: 0 20px;
       display: flex;
-      gap: 6px;
-      overflow-x: auto;
-      scrollbar-width: none;
+      justify-content: center;
     }
 
-    .nav-tabs::-webkit-scrollbar { display: none; }
+    .nav-capsule {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1.5px solid rgba(226, 232, 240, 0.9);
+      border-radius: 999px;
+      padding: 4px;
+      display: inline-flex;
+      gap: 4px;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+      overflow-x: auto;
+      max-width: 100%;
+      scrollbar-width: none;
+    }
+    .nav-capsule::-webkit-scrollbar { display: none; }
 
     .tab-btn {
       font-family: 'Fredoka', cursive, sans-serif;
       font-size: 15px;
       font-weight: 600;
-      padding: 10px 18px;
+      padding: 8px 18px;
       border: none;
-      background: rgba(255, 255, 255, 0.7);
-      color: #475569;
-      border-radius: 14px 14px 0 0;
+      background: transparent;
+      color: #64748b;
+      border-radius: 999px;
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 8px;
-      transition: all 0.2s ease;
-      border-top: 3px solid transparent;
+      gap: 7px;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       white-space: nowrap;
+      user-select: none;
     }
 
     .tab-btn:hover {
-      background: #ffffff;
-      color: var(--primary);
+      color: #1e293b;
+      background: rgba(241, 245, 249, 0.7);
     }
 
     .tab-btn.active {
-      background: #ffffff;
-      color: var(--primary);
-      border-top: 3px solid var(--primary);
-      box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.03);
+      background: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
     }
 
-    /* Main Container */
+    /* MAIN CONTAINER */
     main {
       max-width: 1080px;
-      margin: 0 auto;
+      margin: 16px auto 0;
       padding: 0 20px;
     }
 
     .view-panel {
       display: none;
       background: #ffffff;
-      border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+      border-radius: var(--radius-xl);
       padding: 28px 24px;
-      box-shadow: var(--shadow);
-      min-height: 540px;
+      box-shadow: var(--shadow-lg);
+      min-height: 560px;
+      border: 1px solid rgba(226, 232, 240, 0.8);
     }
 
     .view-panel.active {
       display: block;
-      animation: fadeIn 0.25s ease-out;
+      animation: modernFade 0.22s ease-out;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(6px); }
+    @keyframes modernFade {
+      from { opacity: 0; transform: translateY(5px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Controls Bar */
+    /* MODERN CONTROLS BAR */
     .controls-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 12px;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       padding-bottom: 16px;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1.5px solid #f1f5f9;
     }
 
     .filters-cluster {
@@ -216,66 +259,122 @@
     }
 
     .filter-label {
-      font-size: 13px;
-      font-weight: 700;
-      color: #475569;
+      font-size: 12px;
+      font-weight: 800;
+      color: #64748b;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.6px;
     }
 
     select, input[type="text"] {
       font-family: inherit;
       font-size: 14px;
       font-weight: 600;
-      padding: 8px 12px;
-      border-radius: var(--radius-sm);
+      padding: 8px 14px;
+      border-radius: var(--radius-md);
       border: 2px solid var(--border);
       background: #f8fafc;
       color: var(--text);
       outline: none;
-      transition: border-color 0.2s;
+      transition: all 0.15s ease;
     }
 
     select:focus, input[type="text"]:focus {
       border-color: var(--primary);
       background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
     }
 
-    /* Action Buttons */
+    /* TACTILE 3D "JUICY" BUTTONS (DUOLINGO STYLE) */
     .btn {
       font-family: 'Fredoka', cursive, sans-serif;
       font-size: 15px;
       font-weight: 600;
-      padding: 10px 20px;
-      border-radius: 12px;
+      padding: 10px 22px;
+      border-radius: var(--radius-md);
       border: none;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      transition: all 0.15s ease;
-      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.06);
+      transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.1s ease;
+      user-select: none;
+      text-decoration: none;
     }
 
-    .btn:active { transform: translateY(2px); }
+    .btn:active {
+      transform: translateY(3px) !important;
+    }
 
-    .btn-secondary { background: #f1f5f9; color: #334155; }
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 4px 0 var(--primary-dark);
+    }
+    .btn-primary:hover { background: #2b6bf3; }
+    .btn-primary:active { box-shadow: 0 1px 0 var(--primary-dark); }
+
+    .btn-success {
+      background: var(--success);
+      color: #ffffff;
+      box-shadow: 0 4px 0 var(--success-dark);
+    }
+    .btn-success:hover { background: #13c98d; }
+    .btn-success:active { box-shadow: 0 1px 0 var(--success-dark); }
+
+    .btn-secondary {
+      background: #f1f5f9;
+      color: #334155;
+      box-shadow: 0 4px 0 #cbd5e1;
+      border: 1px solid #e2e8f0;
+    }
     .btn-secondary:hover { background: #e2e8f0; }
+    .btn-secondary:active { box-shadow: 0 1px 0 #cbd5e1; }
 
-    .btn-primary { background: var(--primary); color: #ffffff; }
-    .btn-primary:hover { background: var(--primary-hover); }
+    .btn-purple {
+      background: var(--purple);
+      color: #ffffff;
+      box-shadow: 0 4px 0 var(--purple-dark);
+    }
+    .btn-purple:hover { background: #9469f8; }
+    .btn-purple:active { box-shadow: 0 1px 0 var(--purple-dark); }
 
-    .btn-success { background: #16a34a; color: #ffffff; }
-    .btn-success:hover { background: #15803d; }
+    /* PROGRESS BAR */
+    .progress-bar-wrap {
+      max-width: 620px;
+      margin: 0 auto 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
 
-    .btn-warning { background: #ea580c; color: #ffffff; }
-    .btn-warning:hover { background: #c2410c; }
+    .progress-track {
+      flex: 1;
+      height: 12px;
+      background: #e2e8f0;
+      border-radius: 999px;
+      overflow: hidden;
+      position: relative;
+    }
 
-    .btn-purple { background: #7c3aed; color: #ffffff; }
-    .btn-purple:hover { background: #6d28d9; }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #10b981 0%, #059669 100%);
+      border-radius: 999px;
+      width: 5%;
+      transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-    /* FLASHCARD VIEW */
+    .progress-label {
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    /* FLASHCARD CONTAINER */
     .flashcard-wrapper {
       max-width: 620px;
       margin: 0 auto;
@@ -284,13 +383,13 @@
 
     .flashcard-container {
       width: 100%;
-      min-height: 380px;
+      min-height: 400px;
       position: relative;
       cursor: pointer;
       user-select: none;
       transform-style: preserve-3d;
-      transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
-      border-radius: var(--radius-lg);
+      transition: transform 0.5s cubic-bezier(0.4, 0.2, 0.2, 1);
+      border-radius: var(--radius-xl);
     }
 
     .flashcard-container.flipped {
@@ -302,27 +401,26 @@
       width: 100%;
       height: 100%;
       backface-visibility: hidden;
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius-xl);
       padding: 24px 28px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
       text-align: center;
-      box-shadow: 0 16px 32px rgba(37, 99, 235, 0.08), 0 4px 8px rgba(0,0,0,0.04);
-      border: 3px solid #e2e8f0;
+      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(226, 232, 240, 0.9);
       background: #ffffff;
     }
 
     .card-front {
-      background: linear-gradient(180deg, #ffffff 0%, #f0f7ff 100%);
-      border-color: #bfdbfe;
+      background: linear-gradient(180deg, #ffffff 0%, #f8faff 100%);
+      border: 3px solid #bfdbfe;
     }
 
     .card-back {
       transform: rotateY(180deg);
-      background: linear-gradient(180deg, #ffffff 0%, #f0fdf4 100%);
-      border-color: #bbf7d0;
+      background: linear-gradient(180deg, #ffffff 0%, #f6fdf9 100%);
+      border: 3px solid #a7f3d0;
     }
 
     .card-top {
@@ -335,10 +433,10 @@
 
     .category-tag {
       font-size: 11px;
-      font-weight: 700;
+      font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
-      padding: 4px 10px;
+      letter-spacing: 0.6px;
+      padding: 5px 12px;
       border-radius: 999px;
       background: #e0e7ff;
       color: #3730a3;
@@ -355,32 +453,46 @@
       background: #ffffff;
       border: 1.5px solid #bfdbfe;
       border-radius: 999px;
-      padding: 6px 12px;
+      padding: 6px 14px;
       font-size: 13px;
       font-weight: 700;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 4px;
+      gap: 6px;
       color: var(--primary);
-      transition: all 0.15s;
+      transition: all 0.15s ease;
+      box-shadow: 0 2px 0 #bfdbfe;
     }
-
     .audio-pill-btn:hover {
-      background: var(--primary);
-      color: #ffffff;
+      background: #eff6ff;
       border-color: var(--primary);
-      transform: scale(1.04);
+      transform: translateY(-1px);
+      box-shadow: 0 3px 0 #93c5fd;
+    }
+    .audio-pill-btn:active {
+      transform: translateY(2px);
+      box-shadow: none;
     }
 
     .audio-pill-btn.turtle {
-      border-color: #86efac;
-      color: #166534;
+      border-color: #a7f3d0;
+      color: #059669;
+      box-shadow: 0 2px 0 #a7f3d0;
     }
     .audio-pill-btn.turtle:hover {
-      background: #16a34a;
-      color: #ffffff;
-      border-color: #16a34a;
+      background: #ecfdf5;
+      border-color: #059669;
+      box-shadow: 0 3px 0 #6ee7b7;
+    }
+
+    .audio-pill-btn.speaking {
+      animation: pulseGlow 0.8s infinite alternate;
+      border-color: var(--primary);
+    }
+    @keyframes pulseGlow {
+      from { box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.3); }
+      to { box-shadow: 0 0 0 7px rgba(37, 99, 235, 0); }
     }
 
     .card-body {
@@ -395,7 +507,7 @@
 
     .spanish-word {
       font-family: 'Fredoka', cursive, sans-serif;
-      font-size: 38px;
+      font-size: 40px;
       font-weight: 700;
       color: #1e3a8a;
       letter-spacing: -0.5px;
@@ -404,31 +516,33 @@
 
     .english-word {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 24px;
-      font-weight: 700;
-      color: #166534;
+      font-size: 25px;
+      font-weight: 800;
+      color: #15803d;
       word-break: break-word;
     }
 
-    /* Context Example Sentence Box */
-    .sentence-box {
+    /* MODERN CONTEXT CAPSULE & DYNAMIC KEYWORD HIGHLIGHT */
+    .sentence-capsule {
       width: 100%;
-      background: rgba(255, 255, 255, 0.9);
-      border: 1.5px dashed #93c5fd;
-      border-radius: var(--radius-sm);
-      padding: 12px 16px;
+      background: #f8fafc;
+      border: 1.5px solid #e2e8f0;
+      border-radius: var(--radius-lg);
+      padding: 14px 18px;
       margin-top: 8px;
       text-align: center;
       display: flex;
       flex-direction: column;
       gap: 6px;
       position: relative;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.02);
     }
 
     .sentence-es {
       font-size: 16px;
       font-weight: 600;
       color: #1e293b;
+      line-height: 1.4;
     }
 
     .sentence-en {
@@ -438,22 +552,34 @@
       font-style: italic;
     }
 
+    .highlight-word {
+      background: #dbeafe;
+      color: #1e40af;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 6px;
+      border-bottom: 2px solid #93c5fd;
+    }
+
     .sentence-speak-btn {
       align-self: center;
-      background: #eff6ff;
-      border: 1px solid #bfdbfe;
+      background: #ffffff;
+      border: 1.5px solid #cbd5e1;
       border-radius: 999px;
-      padding: 3px 10px;
-      font-size: 11px;
+      padding: 4px 12px;
+      font-size: 12px;
       font-weight: 700;
       color: var(--primary);
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 4px;
-      margin-top: 2px;
+      gap: 5px;
+      margin-top: 4px;
+      box-shadow: 0 2px 0 #cbd5e1;
+      transition: all 0.15s ease;
     }
-    .sentence-speak-btn:hover { background: #dbeafe; }
+    .sentence-speak-btn:hover { background: #eff6ff; border-color: var(--primary); }
+    .sentence-speak-btn:active { transform: translateY(2px); box-shadow: none; }
 
     .card-hint {
       font-size: 12px;
@@ -464,47 +590,39 @@
     .card-actions {
       display: flex;
       justify-content: center;
-      gap: 10px;
-      margin-top: 20px;
+      gap: 12px;
+      margin-top: 22px;
       flex-wrap: wrap;
-    }
-
-    .card-counter {
-      text-align: center;
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--text-muted);
-      margin-top: 14px;
     }
 
     /* QUIZ VIEW */
     .quiz-container {
-      max-width: 640px;
+      max-width: 660px;
       margin: 0 auto;
     }
 
     .quiz-card {
       background: #ffffff;
-      border: 3px solid #e2e8f0;
-      border-radius: var(--radius-lg);
-      padding: 28px;
-      box-shadow: var(--shadow);
+      border: 2px solid #e2e8f0;
+      border-radius: var(--radius-xl);
+      padding: 30px 24px;
+      box-shadow: var(--shadow-md);
       text-align: center;
       margin-bottom: 24px;
     }
 
     .quiz-prompt-label {
-      font-size: 13px;
-      font-weight: 700;
+      font-size: 12px;
+      font-weight: 800;
       text-transform: uppercase;
       color: var(--text-muted);
-      letter-spacing: 0.5px;
+      letter-spacing: 0.6px;
       margin-bottom: 8px;
     }
 
     .quiz-prompt {
       font-family: 'Fredoka', cursive, sans-serif;
-      font-size: 36px;
+      font-size: 38px;
       font-weight: 700;
       color: #1e3a8a;
       margin-bottom: 12px;
@@ -514,48 +632,55 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 14px;
-      margin-top: 20px;
+      margin-top: 24px;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 620px) {
       .quiz-options { grid-template-columns: 1fr; }
     }
 
     .quiz-option-btn {
-      background: #f8fafc;
-      border: 2.5px solid var(--border);
-      border-radius: var(--radius-md);
+      background: #ffffff;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-lg);
       padding: 16px;
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 700;
       color: #1e293b;
       cursor: pointer;
       text-align: center;
-      transition: all 0.15s ease;
+      transition: all 0.1s ease;
+      box-shadow: 0 4px 0 var(--border);
       outline: none;
     }
 
     .quiz-option-btn:hover {
       border-color: var(--primary);
-      background: #eff6ff;
-      transform: translateY(-2px);
+      background: #f8faff;
+      box-shadow: 0 4px 0 #93c5fd;
+    }
+
+    .quiz-option-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 var(--border);
     }
 
     .quiz-option-btn.correct {
-      background: #dcfce7 !important;
-      border-color: #16a34a !important;
-      color: #15803d !important;
-      transform: scale(1.02);
+      background: #ecfdf5 !important;
+      border-color: #10b981 !important;
+      color: #065f46 !important;
+      box-shadow: 0 4px 0 #059669 !important;
     }
 
     .quiz-option-btn.wrong {
-      background: #fee2e2 !important;
+      background: #fef2f2 !important;
       border-color: #ef4444 !important;
-      color: #b91c1c !important;
-      opacity: 0.8;
+      color: #991b1b !important;
+      box-shadow: 0 4px 0 #dc2626 !important;
+      opacity: 0.75;
     }
 
-    /* WORD SCRAMBLE / SPELLER VIEW */
+    /* SPELLER VIEW */
     .speller-container {
       max-width: 660px;
       margin: 0 auto;
@@ -564,18 +689,18 @@
 
     .speller-card {
       background: #ffffff;
-      border: 3px solid #e2e8f0;
-      border-radius: var(--radius-lg);
-      padding: 28px 24px;
-      box-shadow: var(--shadow);
+      border: 2px solid #e2e8f0;
+      border-radius: var(--radius-xl);
+      padding: 30px 24px;
+      box-shadow: var(--shadow-md);
       margin-bottom: 20px;
     }
 
-    .speller-english-clue {
-      font-size: 22px;
-      font-weight: 700;
-      color: #166534;
-      margin-bottom: 8px;
+    .speller-clue {
+      font-size: 24px;
+      font-weight: 800;
+      color: #15803d;
+      margin: 8px 0;
     }
 
     .speller-slots-wrap {
@@ -584,20 +709,20 @@
       flex-wrap: wrap;
       gap: 8px;
       margin: 24px 0;
-      min-height: 52px;
+      min-height: 54px;
     }
 
     .speller-slot {
       width: 44px;
-      height: 50px;
-      border-bottom: 3.5px solid #2563eb;
+      height: 52px;
+      border-bottom: 4px solid var(--primary);
       background: #eff6ff;
-      border-radius: 8px 8px 0 0;
+      border-radius: 10px 10px 0 0;
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: 'Fredoka', cursive, sans-serif;
-      font-size: 24px;
+      font-size: 25px;
       font-weight: 700;
       color: #1e3a8a;
       cursor: pointer;
@@ -607,7 +732,7 @@
     .speller-slot.space {
       border-bottom: none;
       background: transparent;
-      width: 20px;
+      width: 18px;
       cursor: default;
     }
 
@@ -615,26 +740,26 @@
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 9px;
       margin-top: 20px;
     }
 
     .letter-tile {
-      width: 44px;
-      height: 48px;
+      width: 46px;
+      height: 50px;
       background: #ffffff;
       border: 2px solid #cbd5e1;
-      border-radius: 10px;
+      border-radius: var(--radius-md);
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: 'Fredoka', cursive, sans-serif;
-      font-size: 22px;
+      font-size: 23px;
       font-weight: 700;
       color: #334155;
       cursor: pointer;
-      box-shadow: 0 3px 0 #94a3b8;
-      transition: all 0.1s;
+      box-shadow: 0 4px 0 #94a3b8;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
       user-select: none;
     }
 
@@ -642,44 +767,47 @@
       border-color: var(--primary);
       color: var(--primary);
       transform: translateY(-2px);
+      box-shadow: 0 5px 0 #93c5fd;
     }
 
     .letter-tile:active {
-      transform: translateY(2px);
-      box-shadow: none;
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #94a3b8;
     }
 
     .letter-tile.used {
       opacity: 0.25;
       pointer-events: none;
       box-shadow: none;
-      transform: translateY(2px);
+      transform: translateY(3px);
     }
 
     .accents-tray {
       display: flex;
       justify-content: center;
       gap: 6px;
-      margin-top: 16px;
-      padding-top: 12px;
-      border-top: 1px dashed var(--border);
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 1.5px dashed #f1f5f9;
     }
 
     .accent-btn {
-      width: 32px;
-      height: 34px;
+      width: 34px;
+      height: 36px;
       background: #f8fafc;
       border: 1.5px solid #cbd5e1;
-      border-radius: 6px;
+      border-radius: 8px;
       font-family: 'Fredoka', cursive;
       font-size: 16px;
       font-weight: 700;
       color: #475569;
       cursor: pointer;
+      box-shadow: 0 2px 0 #cbd5e1;
     }
     .accent-btn:hover { background: #e2e8f0; color: var(--primary); }
+    .accent-btn:active { transform: translateY(2px); box-shadow: none; }
 
-    /* SPEED MATCH VIEW */
+    /* SPEED MATCH */
     .match-container {
       max-width: 760px;
       margin: 0 auto;
@@ -688,7 +816,7 @@
     .match-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
+      gap: 14px;
       margin-top: 20px;
     }
 
@@ -698,9 +826,9 @@
 
     .match-tile {
       background: #ffffff;
-      border: 2.5px solid var(--border);
-      border-radius: var(--radius-md);
-      min-height: 94px;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-lg);
+      min-height: 96px;
       padding: 12px;
       display: flex;
       align-items: center;
@@ -710,27 +838,34 @@
       font-weight: 700;
       cursor: pointer;
       user-select: none;
-      transition: all 0.2s ease;
-      box-shadow: var(--shadow-sm);
+      transition: all 0.15s ease;
+      box-shadow: 0 4px 0 var(--border);
     }
 
     .match-tile:hover {
       border-color: var(--primary);
       transform: translateY(-2px);
+      box-shadow: 0 6px 0 #bfdbfe;
+    }
+
+    .match-tile:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 var(--border);
     }
 
     .match-tile.selected {
       border-color: var(--primary);
       background: #eff6ff;
       color: var(--primary);
-      box-shadow: 0 0 0 4px rgba(37,99,235,0.2);
+      box-shadow: 0 4px 0 var(--primary-dark);
     }
 
     .match-tile.matched {
-      background: #dcfce7;
-      border-color: #22c55e;
-      color: #15803d;
-      opacity: 0.6;
+      background: #ecfdf5;
+      border-color: #10b981;
+      color: #065f46;
+      box-shadow: 0 2px 0 #059669;
+      opacity: 0.65;
       cursor: default;
       pointer-events: none;
     }
@@ -750,8 +885,9 @@
 
     .vocab-table-wrap {
       overflow-x: auto;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
     }
 
     table.vocab-table {
@@ -763,16 +899,16 @@
     table.vocab-table th {
       background: #f8fafc;
       padding: 12px 16px;
-      font-size: 13px;
-      font-weight: 700;
+      font-size: 12px;
+      font-weight: 800;
       color: var(--text-muted);
       border-bottom: 2px solid var(--border);
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.6px;
     }
 
     table.vocab-table td {
-      padding: 12px 16px;
+      padding: 14px 16px;
       font-size: 14px;
       border-bottom: 1px solid var(--border);
       color: #334155;
@@ -784,17 +920,17 @@
 
     .table-spanish {
       font-family: 'Fredoka', cursive, sans-serif;
-      font-size: 16px;
+      font-size: 17px;
       font-weight: 600;
       color: #1e3a8a;
     }
 
     .table-audio-btn {
-      background: #eff6ff;
-      border: 1px solid #bfdbfe;
+      background: #ffffff;
+      border: 1.5px solid #bfdbfe;
       border-radius: 8px;
-      width: 30px;
-      height: 30px;
+      width: 32px;
+      height: 32px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -803,8 +939,10 @@
       margin-right: 6px;
       vertical-align: middle;
       color: var(--primary);
+      box-shadow: 0 2px 0 #bfdbfe;
     }
     .table-audio-btn:hover { background: var(--primary); color: #fff; }
+    .table-audio-btn:active { transform: translateY(2px); box-shadow: none; }
 
     /* TROPHIES / PROGRESS VIEW */
     .levels-grid {
@@ -815,24 +953,26 @@
     }
 
     .level-card {
-      background: #f8fafc;
+      background: #ffffff;
       border: 2px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 16px 12px;
+      border-radius: var(--radius-lg);
+      padding: 18px 12px;
       text-align: center;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.15s ease;
+      box-shadow: 0 4px 0 var(--border);
     }
 
     .level-card:hover {
       border-color: var(--primary);
-      transform: translateY(-3px);
-      box-shadow: var(--shadow);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 0 #bfdbfe;
     }
 
     .level-card.completed {
-      background: #f0fdf4;
-      border-color: #86efac;
+      background: #ecfdf5;
+      border-color: #10b981;
+      box-shadow: 0 4px 0 #059669;
     }
 
     .level-number {
@@ -841,8 +981,7 @@
       font-weight: 700;
       color: #1e3a8a;
     }
-
-    .level-card.completed .level-number { color: #166534; }
+    .level-card.completed .level-number { color: #065f46; }
 
     .level-stars {
       margin-top: 6px;
@@ -854,7 +993,8 @@
       display: none;
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(15, 23, 42, 0.7);
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(4px);
       z-index: 1000;
       overflow-y: auto;
       padding: 30px 16px;
@@ -864,8 +1004,8 @@
 
     .print-card {
       background: #ffffff;
-      border-radius: var(--radius-lg);
-      max-width: 800px;
+      border-radius: var(--radius-xl);
+      max-width: 820px;
       width: 100%;
       padding: 30px;
       max-height: 90vh;
@@ -873,10 +1013,10 @@
       box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
     }
 
-    /* Print Sheet CSS */
+    /* Print Formatting */
     @media print {
       body { background: #ffffff !important; padding: 0 !important; }
-      header, .nav-tabs, .controls-bar, .card-actions, .card-counter, .print-btn, #toast, #confetti-canvas { display: none !important; }
+      header, .nav-wrapper, .controls-bar, .card-actions, .card-counter, .progress-bar-wrap, #toast, #confetti-canvas { display: none !important; }
       .print-modal { position: static !important; background: none !important; display: block !important; padding: 0 !important; }
       .print-card { box-shadow: none !important; padding: 0 !important; max-width: 100% !important; }
       .print-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -900,12 +1040,12 @@
       color: #ffffff;
       padding: 12px 20px;
       border-radius: var(--radius-sm);
-      font-weight: 600;
+      font-weight: 700;
       font-size: 14px;
-      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3);
+      box-shadow: 0 10px 25px -3px rgba(0,0,0,0.3);
       display: none;
       z-index: 1000;
-      animation: fadeIn 0.2s;
+      animation: modernFade 0.2s;
     }
   </style>
 </head>
@@ -914,6 +1054,7 @@
   <canvas id="confetti-canvas"></canvas>
   <div id="toast" class="toast"></div>
 
+  <!-- TOP HEADER -->
   <header>
     <div class="header-container">
       <a href="#" class="brand">
@@ -934,21 +1075,29 @@
         <div class="stat-badge backpack" id="backpack-stat-btn" title="Click to practice weak words">
           🎒 Mochila: <span id="backpack-count" style="margin-left: 2px;">0</span>
         </div>
-        <button class="btn btn-secondary" id="open-print-btn" style="padding: 6px 12px; font-size: 13px;" title="Print study sheets">
+
+        <button class="header-tool-btn" id="sfx-toggle-btn" title="Toggle Sound FX">
+          🔊 Efectos: Sí
+        </button>
+
+        <button class="header-tool-btn" id="open-print-btn" title="Print study sheets">
           🖨️ Imprimir
         </button>
       </div>
     </div>
   </header>
 
-  <nav class="nav-tabs">
-    <button class="tab-btn active" data-tab="flashcards">🗂️ Flashcards</button>
-    <button class="tab-btn" data-tab="quiz">⚡ Quiz Game</button>
-    <button class="tab-btn" data-tab="speller">🔤 Deletrear</button>
-    <button class="tab-btn" data-tab="match">🧩 Speed Match</button>
-    <button class="tab-btn" data-tab="explorer">📚 All Words</button>
-    <button class="tab-btn" data-tab="trophies">🏆 Levels & Badges</button>
-  </nav>
+  <!-- MODERN SEGMENTED CAPSULE NAV -->
+  <div class="nav-wrapper">
+    <nav class="nav-capsule">
+      <button class="tab-btn active" data-tab="flashcards">🗂️ Flashcards</button>
+      <button class="tab-btn" data-tab="quiz">⚡ Quiz Game</button>
+      <button class="tab-btn" data-tab="speller">🔤 Deletrear</button>
+      <button class="tab-btn" data-tab="match">🧩 Speed Match</button>
+      <button class="tab-btn" data-tab="explorer">📚 All Words</button>
+      <button class="tab-btn" data-tab="trophies">🏆 Niveles</button>
+    </nav>
+  </div>
 
   <main>
     <!-- 1. FLASHCARDS VIEW -->
@@ -970,6 +1119,14 @@
         </div>
       </div>
 
+      <!-- ANIMATED LEVEL PROGRESS BAR -->
+      <div class="progress-bar-wrap">
+        <div class="progress-track">
+          <div class="progress-fill" id="fc-progress-fill"></div>
+        </div>
+        <div class="progress-label" id="fc-progress-label">1 de 20 (5%)</div>
+      </div>
+
       <div class="flashcard-wrapper">
         <div class="flashcard-container" id="flashcard">
           <!-- FRONT -->
@@ -977,7 +1134,7 @@
             <div class="card-top">
               <span class="category-tag" id="fc-category">Palabra</span>
               <div class="card-audio-cluster">
-                <button class="audio-pill-btn" id="fc-speak-btn" title="Normal speed (1.0x)">
+                <button class="audio-pill-btn" id="fc-speak-btn" title="Normal speed (0.95x)">
                   🔊 🐇 Liebre
                 </button>
                 <button class="audio-pill-btn turtle" id="fc-slow-btn" title="Slow speed (0.65x)">
@@ -989,8 +1146,8 @@
             <div class="card-body">
               <div class="spanish-word" id="fc-spanish">¿cómo te llamas?</div>
               
-              <!-- Context Sentence on Front -->
-              <div class="sentence-box" id="fc-front-sentence-box">
+              <!-- MODERN CONTEXT CAPSULE WITH TARGET HIGHLIGHT -->
+              <div class="sentence-capsule">
                 <div class="sentence-es" id="fc-sentence-es">¡Hola! Yo soy Mateo, ¿cómo te llamas tú?</div>
                 <button class="sentence-speak-btn" id="fc-sentence-speak-btn">
                   💬 Escuchar Oración
@@ -1000,13 +1157,13 @@
               <div class="card-hint">Toca la tarjeta para ver el significado</div>
             </div>
 
-            <div style="font-size: 12px; color: var(--text-muted); font-weight: 600;">(Frente / Español)</div>
+            <div style="font-size: 12px; color: var(--text-muted); font-weight: 700;">(Frente / Español)</div>
           </div>
 
           <!-- BACK -->
           <div class="card-face card-back">
             <div class="card-top">
-              <span class="category-tag" style="background:#dcfce7; color:#166534;" id="fc-mission-tag">Significado</span>
+              <span class="category-tag" style="background:#d1fae5; color:#065f46;" id="fc-mission-tag">Significado</span>
               <div class="card-audio-cluster">
                 <button class="audio-pill-btn" id="fc-speak-back-btn" title="Normal speed">
                   🔊 Repetir
@@ -1016,22 +1173,20 @@
 
             <div class="card-body">
               <div class="english-word" id="fc-english">what is your name?</div>
-              <div style="font-family:'Fredoka'; font-size:18px; color:#2563eb; font-weight:700;" id="fc-spanish-sub">
+              <div style="font-family:'Fredoka'; font-size:20px; color:#2563eb; font-weight:700;" id="fc-spanish-sub">
                 ¿cómo te llamas?
               </div>
 
-              <!-- Context Sentence Translation on Back -->
-              <div class="sentence-box" style="border-color: #86efac; background: rgba(240, 253, 244, 0.9);">
-                <div class="sentence-es" style="color:#166534;" id="fc-back-sentence-es">¡Hola! Yo soy Mateo, ¿cómo te llamas tú?</div>
+              <!-- Translation Capsule on Back -->
+              <div class="sentence-capsule" style="background: #f0fdf4; border-color: #bbf7d0;">
+                <div class="sentence-es" style="color:#15803d;" id="fc-back-sentence-es">¡Hola! Yo soy Mateo, ¿cómo te llamas tú?</div>
                 <div class="sentence-en" id="fc-sentence-en">Hello! I am Mateo, what is your name?</div>
               </div>
             </div>
 
-            <div style="font-size: 12px; color: var(--text-muted); font-weight: 600;">(Reverso / Inglés)</div>
+            <div style="font-size: 12px; color: var(--text-muted); font-weight: 700;">(Reverso / Inglés)</div>
           </div>
         </div>
-
-        <div class="card-counter" id="fc-counter">1 de 20</div>
 
         <div class="card-actions">
           <button class="btn btn-secondary" id="fc-prev-btn">⬅️ Anterior</button>
@@ -1063,9 +1218,9 @@
           <div class="quiz-prompt-label" id="quiz-prompt-label">¿Qué significa esta palabra?</div>
           <div class="quiz-prompt" id="quiz-prompt">---</div>
           
-          <div style="display: flex; justify-content: center; gap: 8px; margin: 10px 0;">
-            <button class="btn btn-secondary" id="quiz-audio-btn">🔊 Escuchar</button>
-            <button class="btn btn-secondary" id="quiz-slow-audio-btn" style="color:#166534;">🐢 Lento</button>
+          <div style="display: flex; justify-content: center; gap: 8px; margin: 12px 0;">
+            <button class="audio-pill-btn" id="quiz-audio-btn">🔊 Escuchar</button>
+            <button class="audio-pill-btn turtle" id="quiz-slow-audio-btn">🐢 Lento</button>
           </div>
 
           <div class="quiz-options" id="quiz-options"></div>
@@ -1094,10 +1249,9 @@
       <div class="speller-container">
         <div class="speller-card">
           <span class="category-tag" id="speller-cat-tag">Palabra</span>
-          <div class="speller-english-clue" id="speller-clue">English Meaning</div>
+          <div class="speller-clue" id="speller-clue">English Meaning</div>
           
-          <!-- Clue sentence -->
-          <div style="font-size: 14px; color: var(--text-muted); font-style: italic; margin-bottom: 12px;" id="speller-sentence-hint">
+          <div style="font-size: 14px; color: var(--text-muted); font-style: italic; margin-bottom: 14px;" id="speller-sentence-hint">
             Context hint
           </div>
 
@@ -1106,15 +1260,11 @@
             <button class="audio-pill-btn turtle" id="speller-slow-btn">🐢 Lento</button>
           </div>
 
-          <!-- Letter slots -->
           <div class="speller-slots-wrap" id="speller-slots"></div>
-
-          <!-- Available tiles -->
           <div class="speller-tiles-wrap" id="speller-tiles"></div>
 
-          <!-- Accent tray -->
           <div class="accents-tray">
-            <span style="font-size: 12px; font-weight: 700; color: var(--text-muted); align-self: center; margin-right: 4px;">Tildes:</span>
+            <span style="font-size: 12px; font-weight: 800; color: var(--text-muted); align-self: center; margin-right: 4px;">Tildes:</span>
             <button class="accent-btn" data-char="á">á</button>
             <button class="accent-btn" data-char="é">é</button>
             <button class="accent-btn" data-char="í">í</button>
@@ -1227,7 +1377,7 @@
 
     // State Variables
     let currentTab = 'flashcards';
-    let currentDeckType = 'level'; // 'level', 'mission', 'backpack'
+    let currentDeckType = 'level';
     let currentFilterVal = '1';
     let currentFcIndex = 0;
     let activeDeck = [];
@@ -1235,6 +1385,7 @@
     let streak = parseInt(localStorage.getItem('es_vocab_streak') || '0', 10);
     let mastered = new Set(JSON.parse(localStorage.getItem('es_vocab_mastered') || '[]'));
     let backpack = new Set(JSON.parse(localStorage.getItem('es_vocab_backpack') || '[]'));
+    let soundFxEnabled = localStorage.getItem('es_vocab_sfx') !== 'false';
 
     // Missions list
     const MISSIONS = [
@@ -1248,12 +1399,11 @@
       "🔍 Mundo y Vocabulario"
     ];
 
-    // Speech Synthesis helper
+    // Speech Synthesis
     let spanishVoices = [];
     function loadVoices() {
       if (!('speechSynthesis' in window)) return;
       const allVoices = window.speechSynthesis.getVoices();
-      // Prioritize Latin American Spanish, then Spain
       spanishVoices = allVoices.filter(v => v.lang.startsWith('es'));
     }
     loadVoices();
@@ -1261,14 +1411,13 @@
       window.speechSynthesis.onvoiceschanged = loadVoices;
     }
 
-    function speakSpanish(text, rate = 0.95) {
+    function speakSpanish(text, rate = 0.95, buttonEl = null) {
       if (!('speechSynthesis' in window)) return;
       window.speechSynthesis.cancel();
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.rate = rate;
       
       if (spanishVoices.length > 0) {
-        // Look for es-US, es-MX, es-419 first
         const bestVoice = spanishVoices.find(v => v.lang === 'es-US' || v.lang === 'es-MX' || v.lang === 'es-419') || spanishVoices[0];
         if (bestVoice) utterance.voice = bestVoice;
         utterance.lang = bestVoice ? bestVoice.lang : 'es-MX';
@@ -1276,12 +1425,19 @@
         utterance.lang = 'es-MX';
       }
 
+      if (buttonEl) {
+        buttonEl.classList.add('speaking');
+        utterance.onend = () => buttonEl.classList.remove('speaking');
+        utterance.onerror = () => buttonEl.classList.remove('speaking');
+      }
+
       window.speechSynthesis.speak(utterance);
     }
 
-    // Web Audio Chimes
+    // Audio SFX
     const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
     function playChime(isCorrect) {
+      if (!soundFxEnabled) return;
       if (audioCtx.state === 'suspended') audioCtx.resume();
       const osc = audioCtx.createOscillator();
       const gain = audioCtx.createGain();
@@ -1290,9 +1446,9 @@
 
       if (isCorrect) {
         const now = audioCtx.currentTime;
-        osc.frequency.setValueAtTime(523.25, now); // C5
-        osc.frequency.setValueAtTime(659.25, now + 0.08); // E5
-        osc.frequency.setValueAtTime(783.99, now + 0.16); // G5
+        osc.frequency.setValueAtTime(523.25, now);
+        osc.frequency.setValueAtTime(659.25, now + 0.08);
+        osc.frequency.setValueAtTime(783.99, now + 0.16);
         gain.gain.setValueAtTime(0.2, now);
         gain.gain.exponentialRampToValueAtTime(0.01, now + 0.35);
         osc.start(now);
@@ -1309,6 +1465,18 @@
       }
     }
 
+    // SFX Toggle
+    const sfxBtn = document.getElementById('sfx-toggle-btn');
+    function updateSfxButtonUI() {
+      sfxBtn.textContent = soundFxEnabled ? '🔊 Efectos: Sí' : '🔇 Efectos: No';
+      localStorage.setItem('es_vocab_sfx', soundFxEnabled ? 'true' : 'false');
+    }
+    sfxBtn.addEventListener('click', () => {
+      soundFxEnabled = !soundFxEnabled;
+      updateSfxButtonUI();
+    });
+    updateSfxButtonUI();
+
     // Confetti
     function launchConfetti() {
       const canvas = document.getElementById('confetti-canvas');
@@ -1317,7 +1485,7 @@
       canvas.height = window.innerHeight;
 
       const pieces = [];
-      const colors = ['#2563eb', '#16a34a', '#f59e0b', '#ec4899', '#8b5cf6'];
+      const colors = ['#2563eb', '#10b981', '#f59e0b', '#ec4899', '#8b5cf6'];
       for (let i = 0; i < 60; i++) {
         pieces.push({
           x: canvas.width / 2,
@@ -1370,7 +1538,6 @@
       localStorage.setItem('es_vocab_backpack', JSON.stringify(Array.from(backpack)));
     }
 
-    // Mochila Backpack Management
     function addToBackpack(wordId) {
       backpack.add(wordId);
       updateStatsHeader();
@@ -1391,7 +1558,6 @@
     const totalLevels = Math.max(...VOCAB_DATA.map(v => v.level));
 
     function populateSelectors() {
-      // Print level select
       const printSel = document.getElementById('print-level-select');
       printSel.innerHTML = '';
       for (let l = 1; l <= totalLevels; l++) {
@@ -1401,7 +1567,6 @@
         printSel.appendChild(opt);
       }
 
-      // Explorer missions & categories
       const expMission = document.getElementById('explorer-mission-filter');
       MISSIONS.forEach(m => {
         const opt = document.createElement('option');
@@ -1429,7 +1594,25 @@
     }
     populateSelectors();
 
-    // Build Active Deck
+    // Helper: Highlight target word inside sentence
+    function formatSentenceWithHighlight(sentence, targetWord) {
+      if (!sentence) return '';
+      let cleanTerm = targetWord.split('(')[0].split('[')[0].replace(/[¿?¡!.,]/g, '').trim();
+      if (!cleanTerm) return sentence;
+
+      const parts = cleanTerm.split(/\s+/);
+      let res = sentence;
+      for (let p of parts) {
+        if (p.length < 2) continue;
+        try {
+          const regex = new RegExp('(\\b' + p + '[a-záéíóúñ]*\\b)', 'gi');
+          res = res.replace(regex, '<mark class="highlight-word">$1</mark>');
+        } catch (_) {}
+      }
+      return res;
+    }
+
+    // Deck Management
     function updateActiveDeck() {
       if (currentDeckType === 'level') {
         const lvl = parseInt(currentFilterVal, 10) || 1;
@@ -1441,7 +1624,6 @@
       }
 
       if (activeDeck.length === 0 && currentDeckType === 'backpack') {
-        // Fallback if backpack is empty
         activeDeck = VOCAB_DATA.slice(0, 20);
       }
 
@@ -1500,9 +1682,10 @@
       if (activeDeck.length === 0) {
         document.getElementById('fc-spanish').textContent = '¡Mochila Limpia! 🎒';
         document.getElementById('fc-english').textContent = 'No hay palabras pendientes';
-        document.getElementById('fc-sentence-es').textContent = '¡Gran trabajo! No tienes palabras para repasar.';
+        document.getElementById('fc-sentence-es').innerHTML = '¡Gran trabajo! No tienes palabras para repasar.';
         document.getElementById('fc-sentence-en').textContent = 'Great job! You have no words to review.';
-        document.getElementById('fc-counter').textContent = '0 de 0';
+        document.getElementById('fc-progress-fill').style.width = '100%';
+        document.getElementById('fc-progress-label').textContent = '0 de 0 (100%)';
         return;
       }
 
@@ -1515,20 +1698,24 @@
       document.getElementById('fc-english').textContent = item.english;
       document.getElementById('fc-spanish-sub').textContent = item.spanish;
 
-      document.getElementById('fc-sentence-es').textContent = item.exampleEs;
-      document.getElementById('fc-back-sentence-es').textContent = item.exampleEs;
+      // Sentence with dynamic highlight
+      document.getElementById('fc-sentence-es').innerHTML = formatSentenceWithHighlight(item.exampleEs, item.spanish);
+      document.getElementById('fc-back-sentence-es').innerHTML = formatSentenceWithHighlight(item.exampleEs, item.spanish);
       document.getElementById('fc-sentence-en').textContent = item.exampleEn;
 
-      document.getElementById('fc-counter').textContent = (currentFcIndex + 1) + ' de ' + activeDeck.length;
+      // Progress bar calculation
+      const progressPercent = Math.round(((currentFcIndex + 1) / activeDeck.length) * 100);
+      document.getElementById('fc-progress-fill').style.width = progressPercent + '%';
+      document.getElementById('fc-progress-label').textContent = (currentFcIndex + 1) + ' de ' + activeDeck.length + ' (' + progressPercent + '%)';
 
       // Master button state
       const masterBtn = document.getElementById('fc-master-btn');
       if (mastered.has(item.id)) {
         masterBtn.textContent = '🌟 ¡Dominada!';
-        masterBtn.style.background = '#16a34a';
+        masterBtn.style.background = '#10b981';
       } else {
         masterBtn.textContent = '⭐ Marcar Dominada';
-        masterBtn.style.background = '#0284c7';
+        masterBtn.style.background = '#2563eb';
       }
 
       // Backpack button state
@@ -1538,7 +1725,7 @@
         bpBtn.style.background = '#9333ea';
       } else {
         bpBtn.textContent = '🎒 A la Mochila';
-        bpBtn.style.background = '#7c3aed';
+        bpBtn.style.background = '#8b5cf6';
       }
     }
 
@@ -1547,29 +1734,34 @@
       flashcardEl.classList.toggle('flipped');
     });
 
-    // Audio handlers
-    document.getElementById('fc-speak-btn').addEventListener('click', (e) => {
+    // Audio Buttons
+    const speakBtn = document.getElementById('fc-speak-btn');
+    const slowBtn = document.getElementById('fc-slow-btn');
+    const speakBackBtn = document.getElementById('fc-speak-back-btn');
+    const sentenceSpeakBtn = document.getElementById('fc-sentence-speak-btn');
+
+    speakBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       const item = activeDeck[currentFcIndex];
-      if (item) speakSpanish(item.spanish, 0.95);
+      if (item) speakSpanish(item.spanish, 0.95, speakBtn);
     });
 
-    document.getElementById('fc-slow-btn').addEventListener('click', (e) => {
+    slowBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       const item = activeDeck[currentFcIndex];
-      if (item) speakSpanish(item.spanish, 0.65);
+      if (item) speakSpanish(item.spanish, 0.65, slowBtn);
     });
 
-    document.getElementById('fc-speak-back-btn').addEventListener('click', (e) => {
+    speakBackBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       const item = activeDeck[currentFcIndex];
-      if (item) speakSpanish(item.spanish, 0.95);
+      if (item) speakSpanish(item.spanish, 0.95, speakBackBtn);
     });
 
-    document.getElementById('fc-sentence-speak-btn').addEventListener('click', (e) => {
+    sentenceSpeakBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       const item = activeDeck[currentFcIndex];
-      if (item) speakSpanish(item.exampleEs, 0.9);
+      if (item) speakSpanish(item.exampleEs, 0.9, sentenceSpeakBtn);
     });
 
     // Navigation buttons
@@ -1616,7 +1808,7 @@
       updateFlashcard();
     });
 
-    // Keyboard navigation
+    // Keyboard Shortcuts
     window.addEventListener('keydown', (e) => {
       if (currentTab !== 'flashcards') return;
       if (e.code === 'Space') {
@@ -1631,7 +1823,7 @@
       }
     });
 
-    // --- TAB SWITCHING ---
+    // Tab Navigation
     const tabBtns = document.querySelectorAll('.tab-btn');
     tabBtns.forEach(btn => {
       btn.addEventListener('click', () => {
@@ -1649,7 +1841,7 @@
       });
     });
 
-    // --- QUIZ LOGIC ---
+    // QUIZ LOGIC
     let currentQuizWord = null;
     let quizAnswered = false;
 
@@ -1690,7 +1882,6 @@
 
       currentQuizWord = pool[Math.floor(Math.random() * pool.length)];
 
-      // Pick 3 distractors
       const distractors = [];
       while (distractors.length < 3) {
         const rand = VOCAB_DATA[Math.floor(Math.random() * VOCAB_DATA.length)];
@@ -1711,22 +1902,22 @@
         promptText.textContent = currentQuizWord.spanish;
         audioBtn.style.display = 'inline-flex';
         slowBtn.style.display = 'inline-flex';
-        speakSpanish(currentQuizWord.spanish, 0.95);
+        speakSpanish(currentQuizWord.spanish, 0.95, audioBtn);
       } else if (mode === 'en-es') {
         promptLabel.textContent = '¿Cómo se dice esto en español?';
         promptText.textContent = currentQuizWord.english;
         audioBtn.style.display = 'none';
         slowBtn.style.display = 'none';
-      } else { // listening
+      } else {
         promptLabel.textContent = '🎧 Escucha con atención y elige el significado:';
         promptText.textContent = '👂 Escucha...';
         audioBtn.style.display = 'inline-flex';
         slowBtn.style.display = 'inline-flex';
-        speakSpanish(currentQuizWord.spanish, 0.95);
+        speakSpanish(currentQuizWord.spanish, 0.95, audioBtn);
       }
 
-      audioBtn.onclick = () => speakSpanish(currentQuizWord.spanish, 0.95);
-      slowBtn.onclick = () => speakSpanish(currentQuizWord.spanish, 0.65);
+      audioBtn.onclick = () => speakSpanish(currentQuizWord.spanish, 0.95, audioBtn);
+      slowBtn.onclick = () => speakSpanish(currentQuizWord.spanish, 0.65, slowBtn);
 
       const optionsContainer = document.getElementById('quiz-options');
       optionsContainer.innerHTML = '';
@@ -1775,10 +1966,9 @@
     document.getElementById('quiz-filter-select').addEventListener('change', startQuizQuestion);
     document.getElementById('quiz-mode-select').addEventListener('change', startQuizQuestion);
 
-    // --- SPELLER / CONSTRUYE LA PALABRA LOGIC ---
+    // SPELLER LOGIC
     let spellerWord = null;
     let spellerTargetLetters = [];
-    let spellerCurrentSlotIndex = 0;
 
     function setupSpellerSelectors() {
       const sel = document.getElementById('speller-filter-select');
@@ -1801,15 +1991,14 @@
       document.getElementById('speller-clue').textContent = spellerWord.english;
       document.getElementById('speller-sentence-hint').textContent = spellerWord.exampleEs;
 
-      document.getElementById('speller-speak-btn').onclick = () => speakSpanish(spellerWord.spanish, 0.95);
-      document.getElementById('speller-slow-btn').onclick = () => speakSpanish(spellerWord.spanish, 0.65);
+      const spk = document.getElementById('speller-speak-btn');
+      const slw = document.getElementById('speller-slow-btn');
+      spk.onclick = () => speakSpanish(spellerWord.spanish, 0.95, spk);
+      slw.onclick = () => speakSpanish(spellerWord.spanish, 0.65, slw);
 
-      speakSpanish(spellerWord.spanish, 0.95);
+      speakSpanish(spellerWord.spanish, 0.95, spk);
 
-      // Clean target letters (preserve spaces)
       spellerTargetLetters = spellerWord.spanish.split('');
-      spellerCurrentSlotIndex = 0;
-
       renderSpellerSlots();
       renderSpellerTiles();
     }
@@ -1850,7 +2039,6 @@
 
     function placeLetter(char, tileEl) {
       const slots = document.querySelectorAll('.speller-slot:not(.space)');
-      // Find first empty slot
       for (let s of slots) {
         if (!s.textContent) {
           s.textContent = char;
@@ -1897,7 +2085,7 @@
         } else {
           playChime(false);
           addToBackpack(spellerWord.id);
-          showToast('Casi... intenta corregir las letras');
+          showToast('Casi... corrige las letras');
         }
       }
     }
@@ -1910,17 +2098,14 @@
     document.getElementById('speller-skip-btn').addEventListener('click', startSpellerRound);
     document.getElementById('speller-filter-select').addEventListener('change', startSpellerRound);
 
-    // Accent buttons
     document.querySelectorAll('.accent-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const char = btn.dataset.char;
-        // Find matching unused tile or place directly
         const tile = [...document.querySelectorAll('.letter-tile:not(.used)')].find(t => t.textContent.toLowerCase() === char.toLowerCase());
         if (tile) placeLetter(tile.textContent, tile);
       });
     });
 
-    // Keyboard support for speller
     window.addEventListener('keydown', (e) => {
       if (currentTab !== 'speller') return;
       if (e.key === 'Backspace') {
@@ -1936,7 +2121,7 @@
       }
     });
 
-    // --- SPEED MATCH LOGIC ---
+    // MATCH GAME LOGIC
     let matchSelected = null;
     let matchPairsFound = 0;
 
@@ -2006,7 +2191,7 @@
 
           if (matchPairsFound === 6) {
             launchConfetti();
-            showToast('🎉 ¡Excelente! Ronda de Parejas Completa!');
+            showToast('🎉 ¡Excelente! Ronda Completa!');
           }
         } else {
           tile.classList.add('wrong');
@@ -2029,7 +2214,7 @@
     document.getElementById('match-restart-btn').addEventListener('click', setupMatchGame);
     document.getElementById('match-filter-select').addEventListener('change', setupMatchGame);
 
-    // --- EXPLORER TABLE LOGIC ---
+    // EXPLORER TABLE LOGIC
     function renderExplorer() {
       const q = document.getElementById('explorer-search').value.toLowerCase().trim();
       const mis = document.getElementById('explorer-mission-filter').value;
@@ -2055,16 +2240,17 @@
             <button class="table-audio-btn" title="Pronunciar">🔊</button>
             <span class="table-spanish">${w.spanish}</span>
           </td>
-          <td style="font-weight:600;">${w.english}</td>
-          <td style="font-size:13px; color:#475569;">
-            ${w.exampleEs} <br>
+          <td style="font-weight:700; color:#15803d;">${w.english}</td>
+          <td style="font-size:13px; color:#334155;">
+            ${formatSentenceWithHighlight(w.exampleEs, w.spanish)} <br>
             <span style="font-size:12px; color:#64748b; font-style:italic;">${w.exampleEn}</span>
           </td>
           <td><span class="category-tag">${w.mission}</span></td>
-          <td style="font-weight:700; color:var(--primary);">Lvl ${w.level}</td>
+          <td style="font-weight:800; color:var(--primary);">Lvl ${w.level}</td>
         `;
 
-        tr.querySelector('.table-audio-btn').addEventListener('click', () => speakSpanish(w.spanish, 0.95));
+        const btn = tr.querySelector('.table-audio-btn');
+        btn.addEventListener('click', () => speakSpanish(w.spanish, 0.95, btn));
         tbody.appendChild(tr);
       });
     }
@@ -2074,7 +2260,7 @@
     document.getElementById('explorer-category-filter').addEventListener('change', renderExplorer);
     document.getElementById('explorer-level-filter').addEventListener('change', renderExplorer);
 
-    // --- TROPHIES & BADGES LOGIC ---
+    // TROPHIES VIEW
     function renderTrophiesView() {
       const grid = document.getElementById('levels-badges-grid');
       grid.innerHTML = '';
@@ -2088,7 +2274,7 @@
         card.className = 'level-card' + (isDone ? ' completed' : '');
         card.innerHTML = `
           <div class="level-number">${isDone ? '🏅' : 'Nivel'} ${l}</div>
-          <div style="font-size:12px; font-weight:700; color:var(--text-muted); margin-top:4px;">
+          <div style="font-size:12px; font-weight:800; color:var(--text-muted); margin-top:4px;">
             ${masteredInLvl} / ${words.length}
           </div>
           <div class="level-stars">${isDone ? '⭐⭐⭐' : (masteredInLvl > 0 ? '⭐' : '⚪')}</div>
@@ -2120,7 +2306,7 @@
       }
     });
 
-    // --- PRINT MODAL LOGIC ---
+    // PRINT MODAL
     const printModal = document.getElementById('print-modal');
     document.getElementById('open-print-btn').addEventListener('click', () => {
       renderPrintGrid();
@@ -2145,7 +2331,7 @@
             <strong style="font-size:16px; color:#1e3a8a;">${w.spanish}</strong>
             <span style="font-size:11px; color:#64748b;">${w.category}</span>
           </div>
-          <div style="font-size:14px; font-weight:600; color:#166534; margin-bottom:6px;">${w.english}</div>
+          <div style="font-size:14px; font-weight:700; color:#15803d; margin-bottom:6px;">${w.english}</div>
           <div style="font-size:12px; color:#334155; border-top:1px dashed #e2e8f0; padding-top:4px;">
             ${w.exampleEs} <br>
             <span style="color:#64748b; font-style:italic;">${w.exampleEn}</span>
@@ -2157,7 +2343,7 @@
 
     document.getElementById('print-level-select').addEventListener('change', renderPrintGrid);
 
-    // Initialize App
+    // Initialize
     updateDeckTypeUI();
     updateStatsHeader();
     updateFlashcard();
